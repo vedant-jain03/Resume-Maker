@@ -1,0 +1,381 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main{
+    background: #1c272b;
+    height: 100vh;
+}
+#main .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    padding: 0 3rem;
+    height: 10%;
+}
+#main .header h2{
+    color: white;
+}
+#main .header h1{
+    color: #58a6ff;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+}
+#main .header h1 span{
+    text-shadow: 0 0 5px rgb(0 0 0);
+}
+#main .header .right a{
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #58a6ff;
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+#main .maincomponent{
+    display: flex;
+    height: 90vh;
+}
+#main .maincomponent .left{
+    flex: 0.40;
+    border-right: 1px solid gray;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar{
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track{
+    border: 7px solid #232943;
+    box-shadow: inset 0 0 2.5px 2px rgba(0,0,0,0.5);
+  }
+  ::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+      45deg,
+      #0074A8,
+      #fff
+    );
+  }
+#main .maincomponent .left .navbar{
+    display: flex;
+    height: 7%;
+    background: #58a6ff;
+}
+#main .maincomponent .left .navbar li{
+    color: white;
+    list-style: none;
+    width: 20%;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#main .maincomponent .left .navbar li:nth-child(1){
+    width: 15%;
+}
+#main .maincomponent .left .navbar .active{
+    background-color: white;
+    color: #58a6ff;
+}
+#main .maincomponent .right{
+    flex: 0.60;
+}
+#main .maincomponent .left .form{
+    color: white;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.form .heading{
+    float: left;
+    font-size: 30px;
+    font-weight: 300;
+    padding-left: 1rem;
+    position: relative;
+}
+.form .heading::after{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 3px;
+    background-color: #58a6ff;
+    left: 3.2%;
+    top: 100%;
+}
+.form .input-box{
+    display: flex;
+    margin: 6px 0;
+    align-items: center;
+}
+.form .input-box span{
+    width: 30%;
+}
+.form .input-box textarea{
+    background: none;
+    border: none;
+    width: 100%;
+    height: 7rem;
+    color: white;
+    font-weight: 300;
+    border: 1px solid #58a6ff;
+    outline: none;
+    font-size: 17px;
+    padding: 7px 10px;
+    font-family: inherit;
+    font-weight: 300;
+}
+.form .textarea{
+    align-items:normal;
+    margin-top: 10px;
+}
+.form .textarea span{
+    margin-top: 1rem;
+}
+.form .input-box input{
+    background: none;
+    border: none;
+    width: 100%;
+    height: 2rem;
+    color: white;
+    font-weight: 300;
+    border-bottom: 1px solid #58a6ff;
+    outline: none;
+    font-size: 17px;
+}
+.skills-section .skill{
+    display: inline;
+    background: hsl(153deg 63% 42%);
+    /* font-weight: bold; */
+    padding: 2px 25px 2px 11px;
+    border-radius: 4px;
+    margin: 5px;
+    position: relative;
+}
+.skills-section .skill .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.2rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+    position: absolute;
+    top: 3px;
+    cursor: pointer;
+}
+.skills-section div{
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.skills-section{
+    height: 12rem;
+    padding: 1rem .5rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    /* background: #ffffff14; */
+    margin-top: 1rem;
+    box-shadow: inset 0 0 8px 7px rgb(0 0 0 / 20%);
+    overflow-y: scroll;
+}
+.input-box .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 0px 7px;
+    margin-left: 1rem;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+    /* background: #58a6ff; */
+    color: white;
+    border: 1px solid #58a6ff;
+}
+.form > h2{
+    float: left;
+    font-size: 25px;
+    font-weight: 300;
+    padding-left: 0rem;
+    position: relative;
+}
+.form > h2::before{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 1px;
+    background-color: #58a6ff;
+    left: 0.2%;
+    top: 100%;
+}
+.experience{
+    border: 1px solid gray;
+    margin-top: 1rem;
+    border-radius: 3px;
+}
+.workexp .addexp{
+    padding: 0px 9px;
+    font-size: 2rem;
+    /* font-weight: bold; */
+    margin-left: 29rem;
+    margin-top: 1rem;
+    /* background: white; */
+    color: white;
+    border-radius: 50%;
+    border: 2px solid #58a6ff;
+    width: 8%;
+    background: none;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+}
+.form .achivelist{
+    padding: .5rem;
+    border-radius: 5px;
+    border: 1px solid #58a6ff;
+    margin-bottom: 1rem;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form .achivelist p{
+    flex: 0.97;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.form .achivelist .MuiSvgIcon-root{
+    float: right;
+    cursor: pointer;
+}
+#main .maincomponent .right {
+    flex: 0.60 1;
+    /* height: 100%; */
+    height: 90vh;
+    overflow-y: scroll;
+    padding: 1rem;
+}
+#main .maincomponent .right .resume-preview{
+    width: 100%;
+    background: white;
+}
+.print-button{
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #58a6ff;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    border: none;
+}
+.skills div p{
+    margin-bottom: 10px;
+}
+.up{
+    display: flex;
+    justify-content: space-between;
+}
+.up .theme{
+    color: white;
+    display: flex;
+    align-items: baseline;
+    border-radius: 10px;
+}
+.up .theme div{
+    height: 20px;
+    width: 20px;
+    margin-left:1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background: linear-gradient(
+45deg
+, #34678c, #f26496);
+}
+.up .theme .active{
+    border: 1px solid white;
+    box-shadow: 0 0 5px 1px rgb(255 250 250 / 33%);
+
+}
+/* responsive */
+@media screen and (max-width: 850px) {
+    #main {
+        background: #1c272b;
+        height: 119vh;
+        width: 120%;
+    }
+    #main .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid gray;
+        padding: 0 1rem;
+        height: 7%;
+    }
+    #main .header h2 {
+        color: white;
+        font-size: 12px;
+    }
+    #main .header h1 span {
+        text-shadow: 0 0 5px rgb(0 0 0);
+        font-size: 20px;
+    }
+    #main .header .right a{
+        display: none;
+    }
+    #main .maincomponent {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        width: 99%;
+    }
+    #main .maincomponent .left .navbar {
+        display: flex;
+        height: 13%;
+        background: #58a6ff;
+    }
+    #main .maincomponent .left {
+        border-bottom: 1px solid gray;
+    }
+  }
+  #main .maincomponent .left .navbar li {
+    color: white;
+    list-style: none;
+    width: 20%;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+}

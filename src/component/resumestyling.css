@@ -1,0 +1,101 @@
+.resume .info{
+    display: flex;
+    padding: 1rem 2rem;
+    overflow: hidden;
+}
+.resume .info > img{
+    margin-right: 1rem;
+    border-radius: 14px;
+    height: 6rem;
+}
+.main-info h1{
+    font-weight: 400;
+    color: #34678c;
+}
+.main-info h3{
+    font-size: 17px;
+    margin-bottom: 3px;
+    color: #403f3f;
+    font-weight: 500;
+}
+.main-info p{
+    font-size: 13px;
+    font-weight: 700;
+}
+.extrainfo{
+    padding: 1rem 2rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.extrainfo a{
+    color: black;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 5px 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.extrainfo a .MuiSvgIcon-root{
+    margin-right: 10px;
+    font-size: 20px;
+    color: #34678c;
+}
+.section{
+    display: flex;
+    padding: 2rem;
+}
+.section .left-section{
+    flex: 0.5;
+}
+.section .right-section{
+    flex: 0.5;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.section-heading {
+    text-transform: uppercase;
+    color: #34678c;
+    margin-bottom: 1rem;
+}
+.section .left-section{
+    padding: 0rem 1rem 0 0;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.left-section div{
+    margin-bottom: 1rem;
+}
+.skills div {
+    display: inline-block;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.skills div p {
+    display: inline;
+    background: #99b3c5;
+    font-size: 12px;
+    /* font-weight: bold; */
+    padding: 2px 25px 2px 11px;
+    border-radius: 4px;
+    margin-right: 5px;
+    position: relative;
+    color: white;
+    font-weight: 500;
+}
+.attachments .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+    color: #f26464;
+    font-size: 15px;
+    transform: rotate(145deg);
+}
