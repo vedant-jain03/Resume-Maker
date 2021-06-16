@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Resume-Maker/static/css/main.03426010.chunk.css",
-    "main.js": "/Resume-Maker/static/js/main.da045ea8.chunk.js",
-    "main.js.map": "/Resume-Maker/static/js/main.da045ea8.chunk.js.map",
+    "main.js": "/Resume-Maker/static/js/main.fb27b2e5.chunk.js",
+    "main.js.map": "/Resume-Maker/static/js/main.fb27b2e5.chunk.js.map",
     "runtime-main.js": "/Resume-Maker/static/js/runtime-main.28e58fb2.js",
     "runtime-main.js.map": "/Resume-Maker/static/js/runtime-main.28e58fb2.js.map",
     "static/js/2.b1dfeaa3.chunk.js": "/Resume-Maker/static/js/2.b1dfeaa3.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.28e58fb2.js",
     "static/js/2.b1dfeaa3.chunk.js",
     "static/css/main.03426010.chunk.css",
-    "static/js/main.da045ea8.chunk.js"
+    "static/js/main.fb27b2e5.chunk.js"
   ]
 }
