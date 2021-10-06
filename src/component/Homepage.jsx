@@ -336,7 +336,10 @@ function Homepage() {
                                 setprimary('black')
                                 setsecondary('#cddc39')
                             }}  ></div>
-                            
+                            <div className={primary==='rgb(0 150 151)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(0 150 151), #ff9800)'}}  onClick={()=>{
+                                setprimary('rgb(0 150 151)')
+                                setsecondary('#ff9800')
+                            }}  ></div>
                         </div>
                     </div>
                     <div className="resume-preview">
