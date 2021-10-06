@@ -173,6 +173,8 @@ function Homepage() {
         setgithub((localStorage.getItem('github')==null?'':localStorage.getItem('github')))
         setlinkedin((localStorage.getItem('linkedin')==null?'':localStorage.getItem('linkedin')))
         setportfolio((localStorage.getItem('portfolio')==null?'':localStorage.getItem('portfolio')))
+        setskills((localStorage.getItem('skills')==null?[]:JSON.parse(localStorage.getItem('skills'))))
+        setlist((localStorage.getItem('list')==null?[]:JSON.parse(localStorage.getItem('list'))))
     },[])
     useEffect(()=>{
         localStorage.setItem("photourl",photourl)
@@ -185,7 +187,9 @@ function Homepage() {
         localStorage.setItem("github",github)
         localStorage.setItem("linkedin",linkedin)
         localStorage.setItem("portfolio",portfolio)
-    },[name,subtitle,photourl,userdesc,email,contact,address,github,portfolio,linkedin,exp])
+        localStorage.setItem("skills",JSON.stringify(skills))
+        localStorage.setItem("list",JSON.stringify(list))
+    },[name,subtitle,photourl,userdesc,email,contact,address,github,portfolio,linkedin,exp, skills, list])
     return (
         <div id="main">
             <div className="header">
