@@ -24,12 +24,13 @@ function Project({ number, project, setproject, name, link, tech, desc }) {
         </div>
     )
 }
-function Projects({ project, setproject, name, link,tech, desc ,project2,setproject2,name2,link2,tech2,desc2,project3,setproject3,name3,link3,tech3,desc3}) {
+function Projects({ project, setproject, name, link,tech, desc ,project2,setproject2,name2,link2,tech2,desc2,project3,setproject3,name3,link3,tech3,desc3,project4,setproject4,name4,link4,tech4,desc4}) {
     return (
         <div className="form">
             <Project number={1} project={project} setproject={setproject} name={name} link={link} tech={tech} desc={desc} />
             <Project number={2} project={project2} setproject={setproject2} name={name2} link={link2} tech={tech2} desc={desc2} />
             <Project number={3} project={project3} setproject={setproject3} name={name3} link={link3} tech={tech3} desc={desc3}/>
+            <Project number={4} project={project4} setproject={setproject4} name={name4} link={link4} tech={tech4} desc={desc4}/>
         </div>
     )
 }

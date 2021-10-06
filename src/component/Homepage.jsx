@@ -55,7 +55,30 @@ function Homepage() {
         to:'',
         expdesc:''
     })
-
+    //experience 4
+    const [exp4,setexp4]=useState({
+        postname:'',
+        company:'',
+        from: '',
+        to:'',
+        expdesc:''
+    })
+    //experience 5
+    const [exp5,setexp5]=useState({
+        postname:'',
+        company:'',
+        from: '',
+        to:'',
+        expdesc:''
+    })
+    //experience 6
+    const [exp6,setexp6]=useState({
+        postname:'',
+        company:'',
+        from: '',
+        to:'',
+        expdesc:''
+    })
     //Eduaction Hooks
     //Eduaction one
     const [edu1,setedu1]=useState({
@@ -104,6 +127,12 @@ function Homepage() {
         desc:''
     })
     const [project3,setproject3]=useState({
+        name:'',
+        link:'',
+        tech:'',
+        desc:''
+    })
+    const [project4,setproject4]=useState({
         name:'',
         link:'',
         tech:'',
@@ -221,6 +250,27 @@ function Homepage() {
                     from3={exp3.from}
                     to3={exp3.to}
                     expdesc3={exp3.expdesc}
+                    exp4={exp4}
+                    setexp4={setexp4}
+                    postname4={exp4.postname}
+                    company4={exp4.company}
+                    from4={exp4.from}
+                    to4={exp4.to}
+                    expdesc4={exp4.expdesc}
+                    exp5={exp5}
+                    setexp5={setexp5}
+                    postname5={exp5.postname}
+                    company5={exp5.company}
+                    from5={exp5.from}
+                    to5={exp5.to}
+                    expdesc5={exp5.expdesc}
+                    exp6={exp6}
+                    setexp6={setexp6}
+                    postname6={exp6.postname}
+                    company6={exp6.company}
+                    from6={exp6.from}
+                    to6={exp6.to}
+                    expdesc6={exp6.expdesc}
                     /> : null}
                     {nav === 'Education' ? <Education 
                     edu1={edu1}
@@ -259,6 +309,12 @@ function Homepage() {
                     link3={project3.link}
                     tech3={project3.tech}
                     desc3={project3.desc}
+                    project4={project4}
+                    setproject4={setproject4}
+                    name4={project4.name}
+                    link4={project4.link}
+                    tech4={project4.tech}
+                    desc4={project4.desc}
                     /> : null} 
                     {nav === 'Achievements' ? <Achievements ach={ach} setach={setach} list={list} setlist={setlist} additem={additem} deleteitem={deleteitem} /> : null}
                     <div className="scroller"></div>
@@ -280,6 +336,10 @@ function Homepage() {
                                 setprimary('black')
                                 setsecondary('#cddc39')
                             }}  ></div>
+                            <div className={primary==='rgb(0 150 151)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(0 150 151), #ff9800)'}}  onClick={()=>{
+                                setprimary('rgb(0 150 151)')
+                                setsecondary('#ff9800')
+                            }}  ></div>
                         </div>
                     </div>
                     <div className="resume-preview">
@@ -297,6 +357,9 @@ function Homepage() {
                         exp={exp}
                         exp2={exp2}
                         exp3={exp3}
+                        exp4={exp4}
+                        exp5={exp5}
+                        exp6={exp6}
                         edu1={edu1}
                         edu2={edu2}
                         skills={skills}
@@ -304,6 +367,7 @@ function Homepage() {
                         project={project}
                         project2={project2}
                         project3={project3}
+                        project4={project4}
                         primary={primary}
                         secondary={secondary}
                         ref={componentRef} />

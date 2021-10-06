@@ -31,7 +31,7 @@ export class ComponentToPrint extends React.PureComponent {
 
                 <div className="section">
                     <div className="left-section">
-                        {  (this.props.exp3.postname==='' && this.props.exp2.postname==='' && this.props.exp.postname==='')?null:<div className="experiences">
+                        {  (this.props.exp3.postname==='' && this.props.exp2.postname==='' && this.props.exp.postname==='' && this.props.exp4.postname==='' && this.props.exp5.postname==='' && this.props.exp6.postname==='')?null:<div className="experiences">
                             <h2 className="section-heading" style={{color:this.props.primary}} >Experience</h2>
                             {(this.props.exp.postname === '') ? null : <div className="div">
                                 <h2 style={{ fontSize: '1rem', color: this.props.secondary }}>{this.props.exp.postname}</h2>
@@ -59,6 +59,33 @@ export class ComponentToPrint extends React.PureComponent {
                                 </p>
                                 <h5 style={{ fontWeight: '400' }}>Experience:</h5>
                                 <p style={{}} >- {this.props.exp3.expdesc}</p>
+                            </div>}
+                            {(this.props.exp4.postname === '') ? null : <div className="div">
+                                <h2 style={{ fontSize: '1rem', color: this.props.secondary }}>{this.props.exp4.postname}</h2>
+                                <h2 style={{ fontSize: '1rem', fontWeight: '400' }}>{this.props.exp4.company}</h2>
+                                <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
+                                    {this.props.exp4.from} - {this.props.exp4.to}
+                                </p>
+                                <h5 style={{ fontWeight: '400' }}>Experience:</h5>
+                                <p style={{}} >- {this.props.exp4.expdesc}</p>
+                            </div>}
+                            {(this.props.exp5.postname === '') ? null : <div className="div">
+                                <h2 style={{ fontSize: '1rem', color: this.props.secondary }}>{this.props.exp5.postname}</h2>
+                                <h2 style={{ fontSize: '1rem', fontWeight: '400' }}>{this.props.exp5.company}</h2>
+                                <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
+                                    {this.props.exp5.from} - {this.props.exp5.to}
+                                </p>
+                                <h5 style={{ fontWeight: '400' }}>Experience:</h5>
+                                <p style={{}} >- {this.props.exp5.expdesc}</p>
+                            </div>}
+                            {(this.props.exp6.postname === '') ? null : <div className="div">
+                                <h2 style={{ fontSize: '1rem', color: this.props.secondary }}>{this.props.exp6.postname}</h2>
+                                <h2 style={{ fontSize: '1rem', fontWeight: '400' }}>{this.props.exp6.company}</h2>
+                                <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
+                                    {this.props.exp6.from} - {this.props.exp6.to}
+                                </p>
+                                <h5 style={{ fontWeight: '400' }}>Experience:</h5>
+                                <p style={{}} >- {this.props.exp6.expdesc}</p>
                             </div>}
                         </div>}
                         {(this.props.edu1.school === '' && this.props.edu2.school === '') ? null : <div className="education">
@@ -144,6 +171,21 @@ export class ComponentToPrint extends React.PureComponent {
                                 <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary}}>{this.props.project3.tech}</h2></h5>
 
                                 <p style={{}} >- {this.props.project3.desc}</p>
+                            </div>}
+                            {(this.props.project4.name === '') ? null : <div className="div" style={{ marginBottom: '1rem' }} >
+                                <div style={{ display: 'flex', flexWrap: 'wrap',color: this.props.secondary }}>
+                                    <h2 style={{ fontSize: '1rem' }}>{this.props.project4.name}</h2>
+                                    {
+                                        this.props.project4.link === '' ? null :
+                                            <a href={this.props.project4.link} style={{ fontSize: '1rem', fontWeight: '400' }} className="attachments">
+                                                <AttachmentIcon style={{color: this.props.secondary}} />
+                                            </a>
+
+                                    }
+                                </div>
+                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary}}>{this.props.project4.tech}</h2></h5>
+
+                                <p style={{}} >- {this.props.project4.desc}</p>
                             </div>}
                         </div>}
                         {this.props.achlist.length === 0 ? null : <div className="achiec">
