@@ -334,6 +334,7 @@
 .footer {
     background: #1c272b;
     padding: 0.6rem 0;
+    border-top: 1px solid gray;
 }
 
 .footer p {
@@ -381,6 +382,9 @@
     }
     #main .maincomponent .left {
         border-bottom: 1px solid gray;
+    }
+    .footer {
+    margin-top: 15px;
     }
   }
   #main .maincomponent .left .navbar li {
