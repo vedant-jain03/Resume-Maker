@@ -20,6 +20,20 @@ Contribution Website for all the Hackoberfest21 Participant
   <img src="https://forthebadge.com/images/badges/built-by-developers.svg" />
 </div>
 
+## Setup Steps
+
+- Go to directory
+```
+$ cd HashHub
+```
+- Install Dependencies
+```
+$ npm install
+```
+- Start LocalHost Server
+```
+$ npm run start
+```
 
 # [Code of Conduct](CODE_OF_CONDUCT.md)
 
