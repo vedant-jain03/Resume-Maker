@@ -275,7 +275,7 @@
 #main .maincomponent .right {
     flex: 0.60 1;
     /* height: 100%; */
-    height: 90vh;
+    height: 85vh;
     overflow-y: scroll;
     padding: 1rem;
 }
