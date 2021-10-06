@@ -340,6 +340,26 @@ function Homepage() {
                                 setprimary('rgb(0 150 151)')
                                 setsecondary('#ff9800')
                             }}  ></div>
+                            <div className={primary==='rgb(70 88 178)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(70 88 178), #91c1dc)'}}  onClick={()=>{
+                                setprimary('rgb(70 88 178)')
+                                setsecondary('#91c1dc')
+                            }}  ></div>
+                            <div className={primary==='rgb(38 70 83)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(38 70 83), #2a9d8f)'}}  onClick={()=>{
+                                setprimary('rgb(38 70 83)')
+                                setsecondary('#2a9d8f')
+                            }}  ></div>
+                            <div className={primary==='rgb(188 108 37)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(188 108 37), #dda15e)'}}  onClick={()=>{
+                                setprimary('rgb(188 108 37)')
+                                setsecondary('#dda15e')
+                            }}  ></div>
+                            <div className={primary==='rgb(0 48 73)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(0 48 73), #d62828)'}}  onClick={()=>{
+                                setprimary('rgb(0 48 73)')
+                                setsecondary('#d62828')
+                            }}  ></div>
+                            <div className={primary==='rgb(140 47 57)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(140 47 57), #b23a48)'}}  onClick={()=>{
+                                setprimary('rgb(140 47 57)')
+                                setsecondary('#b23a48')
+                            }}  ></div>
                         </div>
                     </div>
                     <div className="resume-preview">
