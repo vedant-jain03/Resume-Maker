@@ -47,10 +47,14 @@
     color: white;
     text-decoration: none;
     margin-right: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+#main .header .right a:hover {
+    opacity: 0.93;
 }
 #main .maincomponent{
     display: flex;
-    height: 90vh;
+    height: 85vh;
 }
 #main .maincomponent .left{
     flex: 0.40;
@@ -163,7 +167,6 @@
 .skills-section .skill{
     display: inline;
     background: hsl(153deg 63% 42%);
-    /* font-weight: bold; */
     padding: 2px 25px 2px 11px;
     border-radius: 4px;
     margin: 5px;
@@ -191,7 +194,6 @@
     padding: 1rem .5rem;
     border: 1px solid gray;
     border-radius: 5px;
-    /* background: #ffffff14; */
     margin-top: 1rem;
     box-shadow: inset 0 0 8px 7px rgb(0 0 0 / 20%);
     overflow-y: scroll;
@@ -206,7 +208,6 @@
     text-align: center;
     transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     border-radius: 50%;
-    /* background: #58a6ff; */
     color: white;
     border: 1px solid #58a6ff;
 }
@@ -234,10 +235,8 @@
 .workexp .addexp{
     padding: 0px 9px;
     font-size: 2rem;
-    /* font-weight: bold; */
     margin-left: 29rem;
     margin-top: 1rem;
-    /* background: white; */
     color: white;
     border-radius: 50%;
     border: 2px solid #58a6ff;
@@ -270,8 +269,7 @@
 }
 #main .maincomponent .right {
     flex: 0.60 1;
-    /* height: 100%; */
-    height: 90vh;
+    height: 85vh;
     overflow-y: scroll;
     padding: 1rem;
 }
@@ -299,6 +297,10 @@
     text-decoration: none;
     margin-bottom: 1rem;
     border: none;
+    transition: all 0.3s ease-in-out;
+}
+.print-button:hover {
+    opacity: 0.93;
 }
 .skills div p{
     margin-bottom: 10px;
@@ -328,6 +330,19 @@
     box-shadow: 0 0 5px 1px rgb(255 250 250 / 33%);
 
 }
+/* footer */
+.footer {
+    background: #1c272b;
+    padding: 0.6rem 0;
+    border-top: 1px solid gray;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
 /* responsive */
 @media screen and (max-width: 850px) {
     #main {
@@ -367,6 +382,9 @@
     }
     #main .maincomponent .left {
         border-bottom: 1px solid gray;
+    }
+    .footer {
+    margin-top: 15px;
     }
   }
   #main .maincomponent .left .navbar li {
