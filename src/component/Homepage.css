@@ -47,10 +47,14 @@
     color: white;
     text-decoration: none;
     margin-right: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+#main .header .right a:hover {
+    opacity: 0.93;
 }
 #main .maincomponent{
     display: flex;
-    height: 90vh;
+    height: 85vh;
 }
 #main .maincomponent .left{
     flex: 0.40;
@@ -299,6 +303,10 @@
     text-decoration: none;
     margin-bottom: 1rem;
     border: none;
+    transition: all 0.3s ease-in-out;
+}
+.print-button:hover {
+    opacity: 0.93;
 }
 .skills div p{
     margin-bottom: 10px;
@@ -328,6 +336,19 @@
     box-shadow: 0 0 5px 1px rgb(255 250 250 / 33%);
 
 }
+/* footer */
+.footer {
+    /* width: 100% !important; */
+    background: #1c272b;
+    padding: 0.6rem 0;
+}
+
+.footer p {
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
 /* responsive */
 @media screen and (max-width: 850px) {
     #main {

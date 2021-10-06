@@ -188,15 +188,15 @@ function Homepage() {
     },[name,subtitle,photourl,userdesc,email,contact,address,github,portfolio,linkedin,exp])
     return (
         <div id="main">
-            <div className="header">
+            <header className="header">
                 <h2>Hash/Hub</h2>
                 <h1>📄<span>Resume Maker </span> </h1>
                 <div className="right">
                     <a href="https://github.com/vedant-jain03/Resume-Maker">Contribute</a>
                     <a href="https://github.com/vedant-jain03/Resume-Maker">Give us star</a>
                 </div>
-            </div>
-            <div className="maincomponent">
+            </header>
+            <main className="maincomponent">
                 <div className="left">
                     <div className="navbar">
                         <li className={nav === 'info' ? 'active' : ''} onClick={() => setnav('info')}>Info</li>
@@ -393,7 +393,10 @@ function Homepage() {
                         ref={componentRef} />
                     </div>
                 </div>
-            </div>
+            </main>
+            <footer className="footer">
+                <p>Copyright © 2021. All rights reserved.</p>
+            </footer>
         </div>
     )
 }
