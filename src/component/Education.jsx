@@ -56,7 +56,7 @@ function Education({edu,setedu}) {
         <div className="form education">
             <h1 className="heading" >Education</h1>
             {Object.keys(edu).map((eduid,index) => {
-                return <Edu key={index+1} number={index+1} edu={edu} id={eduid} setedu={setedu} course={edu[eduid].course} from={edu[eduid].from} to={edu[eduid].to} ach={edu[eduid].ach}></Edu>
+                return <Edu key={index+1} number={index+1} edu={edu} id={eduid} school={edu[eduid].school} setedu={setedu} course={edu[eduid].course} from={edu[eduid].from} to={edu[eduid].to} ach={edu[eduid].ach}></Edu>
             })}
         <button className="add-edu-button" onClick={()=>createNewEdu(edu,index)} style={{marginTop:'20px'}}>Add more Educaiton</button>
         </div>
