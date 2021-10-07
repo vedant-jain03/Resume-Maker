@@ -90,6 +90,14 @@ function Homepage() {
             ach: '',
         }
     })
+    const eduObject = {
+        school:'',
+        course: '',
+        from: '',
+        to: '',
+        ach:''  
+    }
+    
     // Skills Hooks
     const [input, setinput] = useState("");
     const [skills, setskills] = useState([]);
@@ -132,6 +140,12 @@ function Homepage() {
         tech:'',
         desc:''
     })
+    const projectObject = {
+        name:'',
+        link:'',
+        tech:'',
+        desc:''
+    }
     //Achievements Hooks
     const [ach, setach] = useState("");
     const [list, setlist] = useState([]);
@@ -167,6 +181,20 @@ function Homepage() {
         setgithub((localStorage.getItem('github')==null?'':localStorage.getItem('github')))
         setlinkedin((localStorage.getItem('linkedin')==null?'':localStorage.getItem('linkedin')))
         setportfolio((localStorage.getItem('portfolio')==null?'':localStorage.getItem('portfolio')))
+        setskills((localStorage.getItem('skills')==null?[]:JSON.parse(localStorage.getItem('skills'))))
+        setlist((localStorage.getItem('list')==null?[]:JSON.parse(localStorage.getItem('list'))))
+        setedu1((localStorage.getItem('edu')==null?eduObject:JSON.parse(localStorage.getItem('edu'))[0]))
+        setedu2((localStorage.getItem('edu')==null?eduObject:JSON.parse(localStorage.getItem('edu'))[1]))
+        setproject((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[0]))
+        setproject2((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[1]))
+        setproject3((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[2]))
+        setproject4((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[3]))
+        setexp((localStorage.getItem('exp')==null?exp:JSON.parse(localStorage.getItem('exp'))[0]))
+        setexp2((localStorage.getItem('exp')==null?exp2:JSON.parse(localStorage.getItem('exp'))[1]))
+        setexp3((localStorage.getItem('exp')==null?exp3:JSON.parse(localStorage.getItem('exp'))[2]))
+        setexp4((localStorage.getItem('exp')==null?exp4:JSON.parse(localStorage.getItem('exp'))[3]))
+        setexp5((localStorage.getItem('exp')==null?exp5:JSON.parse(localStorage.getItem('exp'))[4]))
+        setexp6((localStorage.getItem('exp')==null?exp6:JSON.parse(localStorage.getItem('exp'))[5]))
     },[])
     useEffect(()=>{
         localStorage.setItem("photourl",photourl)
@@ -179,18 +207,24 @@ function Homepage() {
         localStorage.setItem("github",github)
         localStorage.setItem("linkedin",linkedin)
         localStorage.setItem("portfolio",portfolio)
-    },[name,subtitle,photourl,userdesc,email,contact,address,github,portfolio,linkedin,exp])
+        localStorage.setItem("skills",JSON.stringify(skills))
+        localStorage.setItem("list",JSON.stringify(list))
+        localStorage.setItem("edu",JSON.stringify([edu1, edu2]))
+        localStorage.setItem("project",JSON.stringify([project, project2, project3, project4]))
+        localStorage.setItem("exp",JSON.stringify([exp, exp2, exp3, exp4, exp5, exp6]))
+    },[name,subtitle,photourl,userdesc,email,contact,address,github,portfolio,linkedin,exp, skills, list, 
+        edu1, edu2, project, project2, project3, project4, exp, exp2, exp3, exp4, exp5, exp6])
     return (
         <div id="main">
-            <div className="header">
+            <header className="header">
                 <h2>Hash/Hub</h2>
                 <h1>📄<span>Resume Maker </span> </h1>
                 <div className="right">
                     <a href="https://github.com/vedant-jain03/Resume-Maker">Contribute</a>
                     <a href="https://github.com/vedant-jain03/Resume-Maker">Give us star</a>
                 </div>
-            </div>
-            <div className="maincomponent">
+            </header>
+            <main className="maincomponent">
                 <div className="left">
                     <div className="navbar">
                         <li className={nav === 'info' ? 'active' : ''} onClick={() => setnav('info')}>Info</li>
@@ -390,7 +424,10 @@ function Homepage() {
                         ref={componentRef} />
                     </div>
                 </div>
-            </div>
+            </main>
+            <footer className="footer">
+                <p>Copyright © 2021. All rights reserved.</p>
+            </footer>
         </div>
     )
 }

@@ -59,9 +59,10 @@ The **code** is this repo is licensed under the MIT license. Feel free to use an
 
 # ✨ Contributors
 
-<a href="https://github.com/vedant-jain03/Resume-Maker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=vedant-jain03/Resume-Maker" />
+<a href="https://github.com/vedant-jain03/Resume-Maker/graphs/contributors" >
+  <img src="https://contrib.rocks/image?repo=vedant-jain03/Resume-Maker"/>
 </a>
+
 
 <div align="center">
  <img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="love" />
