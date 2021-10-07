@@ -79,13 +79,6 @@ function Homepage() {
         to:'',
         expdesc:''
     })
-    const expObject = {
-        postname:'',
-        company:'',
-        from: '',
-        to:'',
-        expdesc:''
-    }
     //Eduaction Hooks
     //Eduaction one
     const [edu1,setedu1]=useState({
@@ -202,12 +195,12 @@ function Homepage() {
         setproject2((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[1]))
         setproject3((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[2]))
         setproject4((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[3]))
-        setexp((localStorage.getItem('exp')==null?expObject:JSON.parse(localStorage.getItem('exp'))[0]))
-        setexp2((localStorage.getItem('exp')==null?expObject:JSON.parse(localStorage.getItem('exp'))[1]))
-        setexp3((localStorage.getItem('exp')==null?expObject:JSON.parse(localStorage.getItem('exp'))[2]))
-        setexp4((localStorage.getItem('exp')==null?expObject:JSON.parse(localStorage.getItem('exp'))[3]))
-        setexp5((localStorage.getItem('exp')==null?expObject:JSON.parse(localStorage.getItem('exp'))[4]))
-        setexp6((localStorage.getItem('exp')==null?expObject:JSON.parse(localStorage.getItem('exp'))[5]))
+        setexp((localStorage.getItem('exp')==null?exp:JSON.parse(localStorage.getItem('exp'))[0]))
+        setexp2((localStorage.getItem('exp')==null?exp2:JSON.parse(localStorage.getItem('exp'))[1]))
+        setexp3((localStorage.getItem('exp')==null?exp3:JSON.parse(localStorage.getItem('exp'))[2]))
+        setexp4((localStorage.getItem('exp')==null?exp4:JSON.parse(localStorage.getItem('exp'))[3]))
+        setexp5((localStorage.getItem('exp')==null?exp5:JSON.parse(localStorage.getItem('exp'))[4]))
+        setexp6((localStorage.getItem('exp')==null?exp6:JSON.parse(localStorage.getItem('exp'))[5]))
     },[])
     useEffect(()=>{
         localStorage.setItem("photourl",photourl)
