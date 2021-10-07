@@ -80,28 +80,24 @@ function Homepage() {
         expdesc:''
     })
     //Eduaction Hooks
-    //Eduaction one
-    const [edu1,setedu1]=useState({
-        school:'',
-        course: '',
-        from: '',
-        to: '',
-        ach:''
-    })
-    //Education 2
-    const [edu2,setedu2]=useState({
-        school:'',
-        course: '',
-        from: '',
-        to: '',
-        ach:''
+    const [edu, setedu] = useState({
+        //default education 1
+        edu_1: {
+            school: '',
+            course: '',
+            from: '',
+            to: '',
+            ach: '',
+        }
     })
     const eduObject = {
-        school:'',
-        course: '',
-        from: '',
-        to: '',
-        ach:''  
+        edu_1: {
+            school:'',
+            course: '',
+            from: '',
+            to: '',
+            ach:'' 
+        } 
     }
     
     // Skills Hooks
@@ -189,8 +185,7 @@ function Homepage() {
         setportfolio((localStorage.getItem('portfolio')==null?'':localStorage.getItem('portfolio')))
         setskills((localStorage.getItem('skills')==null?[]:JSON.parse(localStorage.getItem('skills'))))
         setlist((localStorage.getItem('list')==null?[]:JSON.parse(localStorage.getItem('list'))))
-        setedu1((localStorage.getItem('edu')==null?eduObject:JSON.parse(localStorage.getItem('edu'))[0]))
-        setedu2((localStorage.getItem('edu')==null?eduObject:JSON.parse(localStorage.getItem('edu'))[1]))
+        setedu((localStorage.getItem('edu')==null?eduObject:JSON.parse(localStorage.getItem('edu'))))
         setproject((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[0]))
         setproject2((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[1]))
         setproject3((localStorage.getItem('project')==null?projectObject:JSON.parse(localStorage.getItem('project'))[2]))
@@ -215,11 +210,11 @@ function Homepage() {
         localStorage.setItem("portfolio",portfolio)
         localStorage.setItem("skills",JSON.stringify(skills))
         localStorage.setItem("list",JSON.stringify(list))
-        localStorage.setItem("edu",JSON.stringify([edu1, edu2]))
+        localStorage.setItem("edu",JSON.stringify(edu))
         localStorage.setItem("project",JSON.stringify([project, project2, project3, project4]))
         localStorage.setItem("exp",JSON.stringify([exp, exp2, exp3, exp4, exp5, exp6]))
     },[name,subtitle,photourl,userdesc,email,contact,address,github,portfolio,linkedin,exp, skills, list, 
-        edu1, edu2, project, project2, project3, project4, exp, exp2, exp3, exp4, exp5, exp6])
+        edu, project, project2, project3, project4, exp, exp2, exp3, exp4, exp5, exp6])
     return (
         <div id="main">
             <header className="header">
@@ -307,20 +302,8 @@ function Homepage() {
                     expdesc6={exp6.expdesc}
                     /> : null}
                     {nav === 'Education' ? <Education 
-                    edu1={edu1}
-                    setedu1={setedu1}
-                    school1={edu1.school}
-                    course1={edu1.course}
-                    from1={edu1.from}
-                    to1={edu1.to}
-                    ach1={edu1.ach}
-                    edu2={edu2}
-                    setedu2={setedu2}
-                    school2={edu2.school}
-                    course2={edu2.course}
-                    from2={edu2.from}
-                    to2={edu2.to}
-                    ach2={edu2.ach}
+                    edu={edu}
+                    setedu={setedu}
                     /> : null}
                     {nav === 'Skills' ? <Skills input={input} skills={skills} listofitems={listofitems} deleteitems={deleteitems} setinput={setinput} setskills={setskills} /> : null} 
                     
@@ -414,8 +397,7 @@ function Homepage() {
                         exp4={exp4}
                         exp5={exp5}
                         exp6={exp6}
-                        edu1={edu1}
-                        edu2={edu2}
+                        edu={edu}
                         skills={skills}
                         achlist={list}
                         project={project}
