@@ -177,6 +177,68 @@ function Homepage() {
       });
     });
   };
+
+  const isEmpty = () => {
+    if (
+      photourl.length ||
+      name.length ||
+      subtitle.length ||
+      userdesc.length ||
+      email.length ||
+      contact.length ||
+      address.length ||
+      github.length ||
+      linkedin.length ||
+      portfolio.length
+    ) {
+      return false;
+    }
+    if (
+      input.length ||
+      skills.length > 0 ||
+      ach.length > 0 ||
+      list.length > 0
+    ) {
+      return false;
+    }
+    const dummyExp = {
+      postname: "",
+      company: "",
+      from: "",
+      to: "",
+      expdesc: "",
+    };
+
+    let expArray = [exp, exp2, exp3, exp4, exp5, exp6];
+
+    for (let i = 0; i < 6; ++i) {
+      if (JSON.stringify(expArray[i]) !== JSON.stringify(dummyExp)) {
+        return false;
+      }
+    }
+    const dummyEdu = {
+      school: "",
+      course: "",
+      from: "",
+      to: "",
+      ach: "",
+    };
+
+    const dummyProject = {
+      name: "",
+      link: "",
+      tech: "",
+      desc: "",
+    };
+
+    let projectArray = [project, project2, project3, project4];
+    for (let i = 0; i < 4; ++i) {
+      if (JSON.stringify(projectArray[i]) !== JSON.stringify(dummyProject)) {
+        return false;
+      }
+    }
+    return true;
+  };
   //Theme Hooks
   const [primary, setprimary] = useState("#34678c");
   const [secondary, setsecondary] = useState("rgb(242, 100, 100)");
