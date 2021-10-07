@@ -88,29 +88,35 @@ export class ComponentToPrint extends React.PureComponent {
                                 <p style={{}} >- {this.props.exp6.expdesc}</p>
                             </div>}
                         </div>}
-                        {(this.props.edu1.school === '' && this.props.edu2.school === '') ? null : <div className="education">
-                            <h2 className="section-heading" style={{color: this.props.primary}} >Education</h2>
-                            <div>
-                                {(this.props.edu1.school === '') ? null : <div className="div">
-                                    <h2 style={{ fontSize: '1rem', color: this.props.secondary, textTransform: 'capitalize'}}>{this.props.edu1.school}</h2>
-                                    <h2 style={{ fontSize: '1rem', fontWeight: '400', textTransform: 'capitalize' }}>{this.props.edu1.course}</h2>
-                                    <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
-                                        {this.props.edu1.from} - {this.props.edu1.to}
-                                    </p>
-                                    <h5 style={{ fontWeight: '400' }}>Achievements:</h5>
-                                    <p style={{}} >- {this.props.edu1.ach}</p>
-                                </div>}
-                                {(this.props.edu2.school === '') ? null : <div className="div">
-                                    <h2 style={{ fontSize: '1rem', color: this.props.secondary }}>{this.props.edu2.school}</h2>
-                                    <h2 style={{ fontSize: '1rem', fontWeight: '400' }}>{this.props.edu2.course}</h2>
-                                    <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
-                                        {this.props.edu2.from} - {this.props.edu2.to}
-                                    </p>
-                                    <h5 style={{ fontWeight: '400' }}>Achievements:</h5>
-                                    <p style={{}} >- {this.props.edu2.ach}</p>
-                                </div>}
-                            </div>
-                        </div>}
+
+                        {Object.keys(this.props.edu).reduce((flag,education)=> {
+                            if(this.props.edu[education].school !== undefined && this.props.edu[education].school !== '' && !flag){
+                                return( 
+                                    <div className="education">
+                                        <h2 className="section-heading" style={{color: this.props.primary}} >Education</h2>
+                                     </div>
+                                )
+                            }
+                            return flag
+                        },false)
+                        }
+                        <div>
+                        {Object.keys(this.props.edu).map((education, index) => {
+                            if(this.props.edu[education].school !== undefined && this.props.edu[education].school !==''){
+                                return (
+                                    <div className='div'>
+                                        <h2 style={{ fontSize: '1rem', color: this.props.secondary }}>{this.props.edu[education].school}</h2>
+                                        <h2 style={{ fontSize: '1rem', fontWeight: '400' }}>{this.props.edu[education].course}</h2>
+                                        <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
+                                            {this.props.edu[education].from} - {this.props.edu[education].to}
+                                        </p>
+                                        <h5 style={{ fontWeight: '400' }}>Achievements:</h5>
+                                        <p style={{}} >- {this.props.edu[education].ach}</p>
+                                    </div>
+                                )
+                            }
+                        })} 
+                        </div>   
                     </div>
                     <div className="right-section">
                         {this.props.skills.length === 0 ? null : <div className="skills">
