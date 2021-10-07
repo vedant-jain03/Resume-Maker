@@ -80,21 +80,15 @@ function Homepage() {
         expdesc:''
     })
     //Eduaction Hooks
-    //Eduaction one
-    const [edu1,setedu1]=useState({
-        school:'',
-        course: '',
-        from: '',
-        to: '',
-        ach:''
-    })
-    //Education 2
-    const [edu2,setedu2]=useState({
-        school:'',
-        course: '',
-        from: '',
-        to: '',
-        ach:''
+    const [edu, setedu] = useState({
+        //default education 1
+        edu_1: {
+            school: '',
+            course: '',
+            from: '',
+            to: '',
+            ach: '',
+        }
     })
     // Skills Hooks
     const [input, setinput] = useState("");
@@ -273,20 +267,22 @@ function Homepage() {
                     expdesc6={exp6.expdesc}
                     /> : null}
                     {nav === 'Education' ? <Education 
-                    edu1={edu1}
-                    setedu1={setedu1}
-                    school1={edu1.school}
-                    course1={edu1.course}
-                    from1={edu1.from}
-                    to1={edu1.to}
-                    ach1={edu1.ach}
-                    edu2={edu2}
-                    setedu2={setedu2}
-                    school2={edu2.school}
-                    course2={edu2.course}
-                    from2={edu2.from}
-                    to2={edu2.to}
-                    ach2={edu2.ach}
+                    edu={edu}
+                    setedu={setedu}
+                    // edu1={edu1}
+                    // setedu1={setedu1}
+                    // school1={edu1.school}
+                    // course1={edu1.course}
+                    // from1={edu1.from}
+                    // to1={edu1.to}
+                    // ach1={edu1.ach}
+                    // edu2={edu2}
+                    // setedu2={setedu2}
+                    // school2={edu2.school}
+                    // course2={edu2.course}
+                    // from2={edu2.from}
+                    // to2={edu2.to}
+                    // ach2={edu2.ach}
                     /> : null}
                     {nav === 'Skills' ? <Skills input={input} skills={skills} listofitems={listofitems} deleteitems={deleteitems} setinput={setinput} setskills={setskills} /> : null} 
                     
@@ -380,8 +376,9 @@ function Homepage() {
                         exp4={exp4}
                         exp5={exp5}
                         exp6={exp6}
-                        edu1={edu1}
-                        edu2={edu2}
+                        // edu1={edu1}
+                        // edu2={edu2}
+                        edu={edu}
                         skills={skills}
                         achlist={list}
                         project={project}

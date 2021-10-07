@@ -279,7 +279,8 @@
     width: 100%;
     background: white;
 }
-.print-button{
+.print-button,
+.add-edu-button{
     position: relative;
     display: inline-block;
     padding: 5px 16px;
