@@ -16,9 +16,18 @@ import { ColorPicker } from "material-ui-color";
 //Homepage
 function Homepage() {
   const componentRef = useRef();
-  const handlePrint = useReactToPrint({
+  const Print = useReactToPrint({
     content: () => componentRef.current,
   });
+
+  const handlePrint = () => {
+    if (isEmpty()) {
+      alert("Can't Print Empty Document");
+      return;
+    }
+
+    Print();
+  };
   //nav hook
   const [nav, setnav] = useState("info");
 
