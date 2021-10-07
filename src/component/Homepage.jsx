@@ -8,6 +8,12 @@ import Education from "./Education"
 import Achievements from "./Achievements"
 import { useReactToPrint } from 'react-to-print';
 import { ComponentToPrint } from './ComponentToPrint';
+import Popover from '@material-ui/core/Popover';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import { ColorPicker } from 'material-ui-color';
+
+
 //Homepage
 function Homepage() {
     const componentRef = useRef();
@@ -167,10 +173,43 @@ function Homepage() {
     //Theme Hooks
     const [primary,setprimary]=useState('#34678c')
     const [secondary,setsecondary]=useState('rgb(242, 100, 100)')
-
-
-    // Use Effect Hook
+    const themeList = [
+        ['#34678c','rgb(242, 100, 100)'],
+        ['#2b273f','#7cff81'],
+        ['black','#cddc39'],
+        ['rgb(0 150 151)','#ff9800'],
+        ['rgb(70 88 178)','#91c1dc'],
+        ['rgb(38 70 83)','#2a9d8f'],
+        ['rgb(188 108 37)','#dda15e'],
+        ['rgb(0 48 73)','#d62828'],
+        ['rgb(140 47 57)','#b23a48'],
+    ]
+    const [themes, setthemes] = useState(themeList)
+    const [picker1Color, setPicker1Color]= useState('#34678c')
+    const [picker2Color, setPicker2Color]= useState('rgb(242, 100, 100)')
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [activeColor, setActiveColor] = useState(0)
+    const handleClickPopover = (event) => {
+        setAnchorEl(event.currentTarget);
+      };
     
+      const handleClosePopover = () => {
+        setAnchorEl(null);
+      };
+    
+      const openPopover = Boolean(anchorEl);
+      const idPopover = openPopover ? 'simple-popover' : undefined;
+      const chooseColor = (theme,index) => {
+          setprimary(theme[0])
+          setsecondary(theme[1])
+          setAnchorEl(null)
+          setActiveColor(index)
+      }
+      const saveTheme = () => {
+        const theme = [picker1Color,picker2Color]
+        setthemes([...themes,theme])
+      }
+    // Use Effect Hook
     useEffect(()=>{
         const prename=(localStorage.getItem("name")===null?'':localStorage.getItem("name"))
         setname(prename);
@@ -196,6 +235,7 @@ function Homepage() {
         setexp4((localStorage.getItem('exp')==null?exp4:JSON.parse(localStorage.getItem('exp'))[3]))
         setexp5((localStorage.getItem('exp')==null?exp5:JSON.parse(localStorage.getItem('exp'))[4]))
         setexp6((localStorage.getItem('exp')==null?exp6:JSON.parse(localStorage.getItem('exp'))[5]))
+        setthemes((localStorage.getItem('themes')==null?themeList:JSON.parse(localStorage.getItem('themes'))))
     },[])
     useEffect(()=>{
         localStorage.setItem("photourl",photourl)
@@ -213,8 +253,9 @@ function Homepage() {
         localStorage.setItem("edu",JSON.stringify(edu))
         localStorage.setItem("project",JSON.stringify([project, project2, project3, project4]))
         localStorage.setItem("exp",JSON.stringify([exp, exp2, exp3, exp4, exp5, exp6]))
+        localStorage.setItem("themes",JSON.stringify(themes))
     },[name,subtitle,photourl,userdesc,email,contact,address,github,portfolio,linkedin,exp, skills, list, 
-        edu, project, project2, project3, project4, exp, exp2, exp3, exp4, exp5, exp6])
+        edu, project, project2, project3, project4, exp, exp2, exp3, exp4, exp5, exp6, themes])
     return (
         <div id="main">
             <header className="header">
@@ -341,42 +382,34 @@ function Homepage() {
                         <button className="print-button" onClick={handlePrint}>Print this out!</button>
                         <div className="theme">
                             <h2>Theme</h2>
-                            <div className={primary==='#34678c'?"combo active":'combo'}  onClick={()=>{
-                                setprimary('#34678c')
-                                setsecondary('rgb(242, 100, 100)')
-                            }} ></div>
-                            <div className={primary==='#2b273f'?'combo active':'combo'} style={{background:'linear-gradient(45deg, #2b273f, #7cff81)'}}  onClick={()=>{
-                                setprimary('#2b273f')
-                                setsecondary('#7cff81')
-                            }}  ></div>
-                            <div className={primary==='black'?'combo active':'combo'} style={{background:'linear-gradient(45deg, black, #cddc39)'}}  onClick={()=>{
-                                setprimary('black')
-                                setsecondary('#cddc39')
-                            }}  ></div>
-                            <div className={primary==='rgb(0 150 151)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(0 150 151), #ff9800)'}}  onClick={()=>{
-                                setprimary('rgb(0 150 151)')
-                                setsecondary('#ff9800')
-                            }}  ></div>
-                            <div className={primary==='rgb(70 88 178)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(70 88 178), #91c1dc)'}}  onClick={()=>{
-                                setprimary('rgb(70 88 178)')
-                                setsecondary('#91c1dc')
-                            }}  ></div>
-                            <div className={primary==='rgb(38 70 83)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(38 70 83), #2a9d8f)'}}  onClick={()=>{
-                                setprimary('rgb(38 70 83)')
-                                setsecondary('#2a9d8f')
-                            }}  ></div>
-                            <div className={primary==='rgb(188 108 37)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(188 108 37), #dda15e)'}}  onClick={()=>{
-                                setprimary('rgb(188 108 37)')
-                                setsecondary('#dda15e')
-                            }}  ></div>
-                            <div className={primary==='rgb(0 48 73)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(0 48 73), #d62828)'}}  onClick={()=>{
-                                setprimary('rgb(0 48 73)')
-                                setsecondary('#d62828')
-                            }}  ></div>
-                            <div className={primary==='rgb(140 47 57)'?'combo active':'combo'} style={{background:'linear-gradient(45deg, rgb(140 47 57), #b23a48)'}}  onClick={()=>{
-                                setprimary('rgb(140 47 57)')
-                                setsecondary('#b23a48')
-                            }}  ></div>
+                            <div style={{background:`linear-gradient(45deg, ${primary}, ${secondary})`}} onClick={()=>{}} >
+                            </div>
+                            <button className="pick-theme-button" onClick={handleClickPopover} style={{marginLeft:'20px'}}>Pick Theme</button>
+                            <Popover id={idPopover} open={openPopover} anchorEl={anchorEl}  transformOrigin={{vertical: 'top',horizontal: 'left'}} onClose={handleClosePopover}>
+                                <Card sx={{ minWidth: 275}} >
+                                    <CardContent>
+                                        <div>
+                                            <div>
+                                                <h3 style={{display:"flex", marginTop:"4px"}}>Palette</h3>
+                                                <div style={{display:"flex", marginTop:"4px"}}>
+                                                    {themes.map((theme,index)=> (
+                                                        <div key={index} className={index===activeColor?'combo colors-active colors':'combo colors'} onClick={(e)=>chooseColor(theme,index)} style={{background:`linear-gradient(45deg, ${theme[0]}, ${theme[1]})`}} ></div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h3 style={{marginTop:"4px"}}>Create New</h3>
+                                                <div className='colors' style={{background:`linear-gradient(45deg, ${picker1Color}, ${picker2Color})`}} ></div>
+                                                <div>
+                                                Primary <ColorPicker defaultValue={picker1Color} value={picker1Color} onChange={color => setPicker1Color(`#${color.hex}`)}   deferred disableAlpha/>
+                                                Secondary <ColorPicker defaultValue={picker2Color} value={picker2Color} onChange={color => setPicker2Color(`#${color.hex}`)}   deferred disableAlpha/>
+                                                </div>
+                                                <button style={{marginTop:'10px'}}  onClick={saveTheme} className="save-theme-button">Save Theme</button>
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </Popover>
                         </div>
                     </div>
                     <div className="resume-preview">

@@ -278,7 +278,9 @@
     background: white;
 }
 .print-button,
-.add-edu-button{
+.add-edu-button,
+.pick-theme-button,
+.save-theme-button{
     position: relative;
     display: inline-block;
     padding: 5px 16px;
@@ -316,7 +318,8 @@
     align-items: baseline;
     border-radius: 10px;
 }
-.up .theme div{
+.up .theme div,
+.colors{
     height: 20px;
     width: 20px;
     margin-left:1rem;
@@ -326,10 +329,10 @@
 45deg
 , #34678c, #f26496);
 }
-.up .theme .active{
-    border: 1px solid white;
-    box-shadow: 0 0 5px 1px rgb(255 250 250 / 33%);
-
+.up .theme .active,
+.colors-active{
+    border: 3px solid #34678c;
+    box-shadow: 0 0 5px 1px #34678c;
 }
 /* footer */
 .footer {
