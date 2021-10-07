@@ -22,7 +22,7 @@ function Homepage() {
         return;
     } 
 
-    Print();
+      Print();
 
   };
 
@@ -254,7 +254,6 @@ function Homepage() {
   const [secondary, setsecondary] = useState("rgb(242, 100, 100)");
 
   // Use Effect Hook
-
   useEffect(() => {
     const prename =
       localStorage.getItem("name") === null ? "" : localStorage.getItem("name");
@@ -753,8 +752,8 @@ function Homepage() {
               secondary={secondary}
               ref={componentRef}
             />
-          </div>
-        </div>
+         </div>
+       </div>
       </main>
       <footer className="footer">
         <p>Copyright © 2021. All rights reserved.</p>
