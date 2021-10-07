@@ -216,13 +216,6 @@ function Homepage() {
         return false;
       }
     }
-    const dummyEdu = {
-      school: "",
-      course: "",
-      from: "",
-      to: "",
-      ach: "",
-    };
 
     const dummyProject = {
       name: "",
