@@ -10,15 +10,17 @@ function Skills({input,skills,listofitems,deleteitems,setinput,setskills}) {
             <div className="form">
                 <div className="input-box">
                     <span className="details">Skills</span>
-                    <input type="text" placeholder="Type Your Skills Here" value={input} onChange={e=>setinput(e.target.value)} />
+                    <input type="text" placeholder="Type Your Skills Here" value={input} onChange={e=>setinput(e.target.value)}/>
                     <IconButton onClick={listofitems}>+</IconButton>
                 </div>
                 <div className="skills-section">
                     {
                         skills.map((item,index)=>{
-                            return (
-                                <Skillitem item={item} id={index} key={index} onSelect={deleteitems} />
-                                )
+                            if(item.length>0){
+                                return (
+                                    <Skillitem item={item} id={index} key={index} onSelect={deleteitems} />
+                                    )
+                            }
                         })
                     }
                 </div>
