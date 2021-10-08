@@ -178,6 +178,12 @@ function Homepage() {
     });
   };
 
+// Clear all localstorage Values
+  const removeall = () => ( 
+    localStorage.clear(),
+    window.location.reload(false)
+    )
+
   const isEmpty = () => {
     if (
       photourl.length ||
@@ -619,9 +625,13 @@ function Homepage() {
         </div>
         <div className="right">
           <div className="up">
+            <div className="buttons">
             <button className="print-button" onClick={handlePrint}>
               Print this out!
             </button>
+            <button className="print-button" onClick = {removeall}>Clear All</button>
+            </div>
+            
             <div className="theme">
               <h2>Theme</h2>
               <div
