@@ -47,7 +47,7 @@ $ npm run start
     
 </p>
 
-<h2 id="prs">Issues & Pull Requests</h2>
+<h2 id="prs">Issues & Pusl Requests</h2>
 
 Before making pull requests please look at our contributing guidelines. You can start working on the issue which are mentioned in issues section. Just drop a comment before working on the issue. Thank you!
 
