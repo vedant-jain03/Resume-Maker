@@ -8,6 +8,11 @@ import Education from "./Education";
 import Achievements from "./Achievements";
 import { useReactToPrint } from "react-to-print";
 import { ComponentToPrint } from "./ComponentToPrint";
+import Popover from "@material-ui/core/Popover";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import { ColorPicker } from "material-ui-color";
+
 //Homepage
 function Homepage() {
   const componentRef = useRef();
@@ -15,17 +20,14 @@ function Homepage() {
     content: () => componentRef.current,
   });
 
-  const handlePrint = ()=>{ 
+  const handlePrint = () => {
+    if (isEmpty()) {
+      alert("Can't Print Empty Document");
+      return;
+    }
 
-    if(isEmpty()){
-        alert("Can't Print Empty Document"); 
-        return;
-    } 
-
-      Print();
-
+    Print();
   };
-
   //nav hook
   const [nav, setnav] = useState("info");
 
@@ -91,28 +93,24 @@ function Homepage() {
     expdesc: "",
   });
   //Eduaction Hooks
-  //Eduaction one
-  const [edu1, setedu1] = useState({
-    school: "",
-    course: "",
-    from: "",
-    to: "",
-    ach: "",
-  });
-  //Education 2
-  const [edu2, setedu2] = useState({
-    school: "",
-    course: "",
-    from: "",
-    to: "",
-    ach: "",
+  const [edu, setedu] = useState({
+    //default education 1
+    edu_1: {
+      school: "",
+      course: "",
+      from: "",
+      to: "",
+      ach: "",
+    },
   });
   const eduObject = {
-    school: "",
-    course: "",
-    from: "",
-    to: "",
-    ach: "",
+    edu_1: {
+      school: "",
+      course: "",
+      from: "",
+      to: "",
+      ach: "",
+    },
   };
 
   // Skills Hooks
@@ -218,21 +216,7 @@ function Homepage() {
         return false;
       }
     }
-    const dummyEdu = {
-      school: "",
-      course: "",
-      from: "",
-      to: "",
-      ach: "",
-    };
 
-    let eduArray = [edu1, edu2];
-
-    for (let i = 0; i < 2; ++i) {
-      if (JSON.stringify(eduArray[i]) !== JSON.stringify(dummyEdu)) {
-        return false;
-      }
-    }
     const dummyProject = {
       name: "",
       link: "",
@@ -241,7 +225,6 @@ function Homepage() {
     };
 
     let projectArray = [project, project2, project3, project4];
-
     for (let i = 0; i < 4; ++i) {
       if (JSON.stringify(projectArray[i]) !== JSON.stringify(dummyProject)) {
         return false;
@@ -252,7 +235,42 @@ function Homepage() {
   //Theme Hooks
   const [primary, setprimary] = useState("#34678c");
   const [secondary, setsecondary] = useState("rgb(242, 100, 100)");
+  const themeList = [
+    ["#34678c", "rgb(242, 100, 100)"],
+    ["#2b273f", "#7cff81"],
+    ["black", "#cddc39"],
+    ["rgb(0 150 151)", "#ff9800"],
+    ["rgb(70 88 178)", "#91c1dc"],
+    ["rgb(38 70 83)", "#2a9d8f"],
+    ["rgb(188 108 37)", "#dda15e"],
+    ["rgb(0 48 73)", "#d62828"],
+    ["rgb(140 47 57)", "#b23a48"],
+  ];
+  const [themes, setthemes] = useState(themeList);
+  const [picker1Color, setPicker1Color] = useState("#34678c");
+  const [picker2Color, setPicker2Color] = useState("rgb(242, 100, 100)");
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [activeColor, setActiveColor] = useState(0);
+  const handleClickPopover = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
+  const handleClosePopover = () => {
+    setAnchorEl(null);
+  };
+
+  const openPopover = Boolean(anchorEl);
+  const idPopover = openPopover ? "simple-popover" : undefined;
+  const chooseColor = (theme, index) => {
+    setprimary(theme[0]);
+    setsecondary(theme[1]);
+    setAnchorEl(null);
+    setActiveColor(index);
+  };
+  const saveTheme = () => {
+    const theme = [picker1Color, picker2Color];
+    setthemes([...themes, theme]);
+  };
   // Use Effect Hook
   useEffect(() => {
     const prename =
@@ -311,15 +329,10 @@ function Homepage() {
         ? []
         : JSON.parse(localStorage.getItem("list"))
     );
-    setedu1(
+    setedu(
       localStorage.getItem("edu") == null
         ? eduObject
-        : JSON.parse(localStorage.getItem("edu"))[0]
-    );
-    setedu2(
-      localStorage.getItem("edu") == null
-        ? eduObject
-        : JSON.parse(localStorage.getItem("edu"))[1]
+        : JSON.parse(localStorage.getItem("edu"))
     );
     setproject(
       localStorage.getItem("project") == null
@@ -371,6 +384,11 @@ function Homepage() {
         ? exp6
         : JSON.parse(localStorage.getItem("exp"))[5]
     );
+    setthemes(
+      localStorage.getItem("themes") == null
+        ? themeList
+        : JSON.parse(localStorage.getItem("themes"))
+    );
   }, []);
   useEffect(() => {
     localStorage.setItem("photourl", photourl);
@@ -385,7 +403,7 @@ function Homepage() {
     localStorage.setItem("portfolio", portfolio);
     localStorage.setItem("skills", JSON.stringify(skills));
     localStorage.setItem("list", JSON.stringify(list));
-    localStorage.setItem("edu", JSON.stringify([edu1, edu2]));
+    localStorage.setItem("edu", JSON.stringify(edu));
     localStorage.setItem(
       "project",
       JSON.stringify([project, project2, project3, project4])
@@ -394,6 +412,7 @@ function Homepage() {
       "exp",
       JSON.stringify([exp, exp2, exp3, exp4, exp5, exp6])
     );
+    localStorage.setItem("themes", JSON.stringify(themes));
   }, [
     name,
     subtitle,
@@ -408,8 +427,7 @@ function Homepage() {
     exp,
     skills,
     list,
-    edu1,
-    edu2,
+    edu,
     project,
     project2,
     project3,
@@ -420,6 +438,7 @@ function Homepage() {
     exp4,
     exp5,
     exp6,
+    themes,
   ]);
   return (
     <div id="main">
@@ -546,24 +565,7 @@ function Homepage() {
               expdesc6={exp6.expdesc}
             />
           ) : null}
-          {nav === "Education" ? (
-            <Education
-              edu1={edu1}
-              setedu1={setedu1}
-              school1={edu1.school}
-              course1={edu1.course}
-              from1={edu1.from}
-              to1={edu1.to}
-              ach1={edu1.ach}
-              edu2={edu2}
-              setedu2={setedu2}
-              school2={edu2.school}
-              course2={edu2.course}
-              from2={edu2.from}
-              to2={edu2.to}
-              ach2={edu2.ach}
-            />
-          ) : null}
+          {nav === "Education" ? <Education edu={edu} setedu={setedu} /> : null}
           {nav === "Skills" ? (
             <Skills
               input={input}
@@ -623,103 +625,91 @@ function Homepage() {
             <div className="theme">
               <h2>Theme</h2>
               <div
-                className={primary === "#34678c" ? "combo active" : "combo"}
-                onClick={() => {
-                  setprimary("#34678c");
-                  setsecondary("rgb(242, 100, 100)");
-                }}
-              ></div>
-              <div
-                className={primary === "#2b273f" ? "combo active" : "combo"}
                 style={{
-                  background: "linear-gradient(45deg, #2b273f, #7cff81)",
+                  background: `linear-gradient(45deg, ${primary}, ${secondary})`,
                 }}
-                onClick={() => {
-                  setprimary("#2b273f");
-                  setsecondary("#7cff81");
-                }}
+                onClick={() => {}}
               ></div>
-              <div
-                className={primary === "black" ? "combo active" : "combo"}
-                style={{ background: "linear-gradient(45deg, black, #cddc39)" }}
-                onClick={() => {
-                  setprimary("black");
-                  setsecondary("#cddc39");
-                }}
-              ></div>
-              <div
-                className={
-                  primary === "rgb(0 150 151)" ? "combo active" : "combo"
-                }
-                style={{
-                  background: "linear-gradient(45deg, rgb(0 150 151), #ff9800)",
-                }}
-                onClick={() => {
-                  setprimary("rgb(0 150 151)");
-                  setsecondary("#ff9800");
-                }}
-              ></div>
-              <div
-                className={
-                  primary === "rgb(70 88 178)" ? "combo active" : "combo"
-                }
-                style={{
-                  background: "linear-gradient(45deg, rgb(70 88 178), #91c1dc)",
-                }}
-                onClick={() => {
-                  setprimary("rgb(70 88 178)");
-                  setsecondary("#91c1dc");
-                }}
-              ></div>
-              <div
-                className={
-                  primary === "rgb(38 70 83)" ? "combo active" : "combo"
-                }
-                style={{
-                  background: "linear-gradient(45deg, rgb(38 70 83), #2a9d8f)",
-                }}
-                onClick={() => {
-                  setprimary("rgb(38 70 83)");
-                  setsecondary("#2a9d8f");
-                }}
-              ></div>
-              <div
-                className={
-                  primary === "rgb(188 108 37)" ? "combo active" : "combo"
-                }
-                style={{
-                  background:
-                    "linear-gradient(45deg, rgb(188 108 37), #dda15e)",
-                }}
-                onClick={() => {
-                  setprimary("rgb(188 108 37)");
-                  setsecondary("#dda15e");
-                }}
-              ></div>
-              <div
-                className={
-                  primary === "rgb(0 48 73)" ? "combo active" : "combo"
-                }
-                style={{
-                  background: "linear-gradient(45deg, rgb(0 48 73), #d62828)",
-                }}
-                onClick={() => {
-                  setprimary("rgb(0 48 73)");
-                  setsecondary("#d62828");
-                }}
-              ></div>
-              <div
-                className={
-                  primary === "rgb(140 47 57)" ? "combo active" : "combo"
-                }
-                style={{
-                  background: "linear-gradient(45deg, rgb(140 47 57), #b23a48)",
-                }}
-                onClick={() => {
-                  setprimary("rgb(140 47 57)");
-                  setsecondary("#b23a48");
-                }}
-              ></div>
+              <button
+                className="pick-theme-button"
+                onClick={handleClickPopover}
+                style={{ marginLeft: "20px" }}
+              >
+                Pick Theme
+              </button>
+              <Popover
+                id={idPopover}
+                open={openPopover}
+                anchorEl={anchorEl}
+                transformOrigin={{ vertical: "top", horizontal: "left" }}
+                onClose={handleClosePopover}
+              >
+                <Card sx={{ minWidth: 275 }}>
+                  <CardContent>
+                    <div>
+                      <div>
+                        <h3 style={{ display: "flex", marginTop: "4px" }}>
+                          Palette
+                        </h3>
+                        <div style={{ display: "flex", marginTop: "4px" }}>
+                          {themes.map((theme, index) => (
+                            <div
+                              key={index}
+                              className={
+                                index === activeColor
+                                  ? "combo colors-active colors"
+                                  : "combo colors"
+                              }
+                              onClick={(e) => chooseColor(theme, index)}
+                              style={{
+                                background: `linear-gradient(45deg, ${theme[0]}, ${theme[1]})`,
+                              }}
+                            ></div>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h3 style={{ marginTop: "4px" }}>Create New</h3>
+                        <div
+                          className="colors"
+                          style={{
+                            background: `linear-gradient(45deg, ${picker1Color}, ${picker2Color})`,
+                          }}
+                        ></div>
+                        <div>
+                          Primary{" "}
+                          <ColorPicker
+                            defaultValue={picker1Color}
+                            value={picker1Color}
+                            onChange={(color) =>
+                              setPicker1Color(`#${color.hex}`)
+                            }
+                            deferred
+                            disableAlpha
+                          />
+                          Secondary{" "}
+                          <ColorPicker
+                            defaultValue={picker2Color}
+                            value={picker2Color}
+                            onChange={(color) =>
+                              setPicker2Color(`#${color.hex}`)
+                            }
+                            deferred
+                            disableAlpha
+                          />
+                        </div>
+                        <button
+                          style={{ marginTop: "10px" }}
+                          onClick={saveTheme}
+                          className="save-theme-button"
+                        >
+                          Save Theme
+                        </button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Popover>
             </div>
           </div>
           <div className="resume-preview">
@@ -740,8 +730,7 @@ function Homepage() {
               exp4={exp4}
               exp5={exp5}
               exp6={exp6}
-              edu1={edu1}
-              edu2={edu2}
+              edu={edu}
               skills={skills}
               achlist={list}
               project={project}
@@ -752,8 +741,8 @@ function Homepage() {
               secondary={secondary}
               ref={componentRef}
             />
-         </div>
-       </div>
+          </div>
+        </div>
       </main>
       <footer className="footer">
         <p>Copyright © 2021. All rights reserved.</p>
