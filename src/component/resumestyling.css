@@ -21,6 +21,8 @@
 .main-info p{
     font-size: 13px;
     font-weight: 700;
+    text-align: justify;
+    color: #4d5156;
 }
 .extrainfo{
     padding: 1rem 2rem;
@@ -98,4 +100,8 @@
     color: #f26464;
     font-size: 15px;
     transform: rotate(145deg);
+}
+
+.technology-used{
+    margin-left:10px
 }

@@ -25,9 +25,11 @@ function Achievements({ach,setach,list,setlist,additem,deleteitem}) {
                 <div className="skills-section" style={{ boxShadow: 'none' ,height:'22rem'}} >
                     {
                         list.map((item, index) => {
+                            if(item.length>0){
                             return (
                                 <Ach item={item} id={index} key={index} onSelect={deleteitem} />
                             )
+                        }
                         })
                     }
                 </div>

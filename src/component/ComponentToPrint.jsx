@@ -14,7 +14,7 @@ export class ComponentToPrint extends React.PureComponent {
                 <div className="info">
                     {this.props.photourl === '' ? null : <img src={this.props.photourl} alt="" />}
                     <div className="main-info">
-                        <h1 style={{color:this.props.primary}}  >{this.props.name}</h1>
+                        <h1 style={{color:this.props.primary,textTransform: 'capitalize'}}  >{this.props.name}</h1>
                         <h3>{this.props.subtitle}</h3>
                         <p>{this.props.userdesc}</p>
                     </div>
@@ -34,7 +34,7 @@ export class ComponentToPrint extends React.PureComponent {
                         {  (this.props.exp3.postname==='' && this.props.exp2.postname==='' && this.props.exp.postname==='' && this.props.exp4.postname==='' && this.props.exp5.postname==='' && this.props.exp6.postname==='')?null:<div className="experiences">
                             <h2 className="section-heading" style={{color:this.props.primary}} >Experience</h2>
                             {(this.props.exp.postname === '') ? null : <div className="div">
-                                <h2 style={{ fontSize: '1rem', color: this.props.secondary }}>{this.props.exp.postname}</h2>
+                                <h2 style={{ fontSize: '1rem', color: this.props.secondary, textTransform: 'capitalize' }}>{this.props.exp.postname}</h2>
                                 <h2 style={{ fontSize: '1rem', fontWeight: '400' }}>{this.props.exp.company}</h2>
                                 <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
                                     {this.props.exp.from} - {this.props.exp.to}
@@ -84,10 +84,11 @@ export class ComponentToPrint extends React.PureComponent {
                                 <p style={{ fontSize: '13px', color: 'gray', fontWeight: '600', marginLeft: '1rem', fontStyle: 'italic' }} className="fromto">
                                     {this.props.exp6.from} - {this.props.exp6.to}
                                 </p>
-                                <h5 style={{ fontWeight: '400' }}>Experience:</h5>
+                                <h5 style={{ fontWeight: '400', marginTop:'2px' }}>Experience:</h5>
                                 <p style={{}} >- {this.props.exp6.expdesc}</p>
                             </div>}
                         </div>}
+
                         {Object.keys(this.props.edu).reduce((flag,education)=> {
                             if(this.props.edu[education].school !== undefined && this.props.edu[education].school !== '' && !flag){
                                 return( 
@@ -123,9 +124,11 @@ export class ComponentToPrint extends React.PureComponent {
                             <div>
                                 {
                                     this.props.skills.map((item) => {
+                                        if(item.length>0){
                                         return (
                                             <p className="skill" style={{backgroundColor:this.props.secondary}} >{item}</p>
                                         )
+                                        }
                                     })
                                 }
                             </div>
@@ -134,7 +137,7 @@ export class ComponentToPrint extends React.PureComponent {
                             <h2 className="section-heading" style={{color: this.props.primary}}>Projects</h2>
                             {(this.props.project.name === '') ? null : <div className="div" style={{ marginBottom: '1rem' }} >
                                 <div style={{ display: 'flex', flexWrap: 'wrap', color: this.props.secondary}}>
-                                    <h2 style={{ fontSize: '1rem' }}>{this.props.project.name}</h2>
+                                    <h2 style={{ fontSize: '1rem', textTransform: 'capitalize' }}>{this.props.project.name}</h2>
                                     {
                                         this.props.project.link === '' ? null :
                                             <a href={this.props.project.link} style={{ fontSize: '1rem', fontWeight: '400' }} className="attachments">
@@ -143,7 +146,7 @@ export class ComponentToPrint extends React.PureComponent {
 
                                     }
                                 </div>
-                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary }}>{this.props.project.tech}</h2></h5>
+                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 className="technology-used" style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary }}>{this.props.project.tech}</h2></h5>
 
                                 <p style={{}} >- {this.props.project.desc}</p>
                             </div>}
@@ -158,7 +161,7 @@ export class ComponentToPrint extends React.PureComponent {
 
                                     }
                                 </div>
-                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary }}>{this.props.project2.tech}</h2></h5>
+                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 className="technology-used" style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary }}> {this.props.project2.tech}</h2></h5>
 
                                 <p style={{}} >- {this.props.project2.desc}</p>
                             </div>}
@@ -173,7 +176,7 @@ export class ComponentToPrint extends React.PureComponent {
 
                                     }
                                 </div>
-                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary}}>{this.props.project3.tech}</h2></h5>
+                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 className="technology-used" style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary}}>{this.props.project3.tech}</h2></h5>
 
                                 <p style={{}} >- {this.props.project3.desc}</p>
                             </div>}
@@ -188,7 +191,7 @@ export class ComponentToPrint extends React.PureComponent {
 
                                     }
                                 </div>
-                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary}}>{this.props.project4.tech}</h2></h5>
+                                <h5 style={{ fontWeight: '400', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>Technology Used:  <h2 className="technology-used" style={{ fontSize: '1rem', fontWeight: '400', color: this.props.secondary}}>{this.props.project4.tech}</h2></h5>
 
                                 <p style={{}} >- {this.props.project4.desc}</p>
                             </div>}
@@ -198,10 +201,12 @@ export class ComponentToPrint extends React.PureComponent {
                             <div>
                                 {
                                     this.props.achlist.map((item) => {
+                                        if(item.length>0){
                                         return (<>
                                             <p style={{ fontWeight: '600' }} >- {item}</p>
                                         </>
                                         )
+                                        }
                                     })
                                 }
                             </div>
