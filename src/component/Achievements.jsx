@@ -20,7 +20,7 @@ function Achievements({ach,setach,list,setlist,additem,deleteitem}) {
                 <div className="input-box">
                     <span className="details">Achievements</span>
                     <input type="text" placeholder="Type Your Achievements Here" style={{ width: '85%' }} value={ach} onChange={e => setach(e.target.value)} />
-                    <IconButton onClick={additem} >+</IconButton>
+                    <IconButton onClick={additem} disabled={ach===''?true:false} >+</IconButton>
                 </div>
                 <div className="skills-section" style={{ boxShadow: 'none' ,height:'22rem'}} >
                     {

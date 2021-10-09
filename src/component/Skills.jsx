@@ -11,7 +11,9 @@ function Skills({input,skills,listofitems,deleteitems,setinput,setskills}) {
                 <div className="input-box">
                     <span className="details">Skills</span>
                     <input type="text" placeholder="Type Your Skills Here" value={input} onChange={e=>setinput(e.target.value)}/>
-                    <IconButton onClick={listofitems}>+</IconButton>
+                    <IconButton onClick={listofitems} 
+                    disabled={input===""?true:false}
+                    >+</IconButton>
                 </div>
                 <div className="skills-section">
                     {
