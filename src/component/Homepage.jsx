@@ -659,7 +659,18 @@ function Homepage() {
               Print this out!
             </button>
             <button className="print-button" onClick = {removeall}>Clear All</button>
-            </div> 
+            </div>  
+            <div className="inputfield-fontstyle">
+              <Select
+                value={fontFamily}
+                variant="outlined"
+                onChange={(e) => setFontFamily(e.target.value)}
+                className="fontpicker"
+                autoWidth={true}
+              >
+                {fonts.map((font,idx)=><MenuItem value={font} key={idx}>{font}</MenuItem>)}
+              </Select>
+            </div>
             <div className="theme">
               <h2>Theme</h2>
               <div

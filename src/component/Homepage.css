@@ -277,6 +277,7 @@
     width: 100%;
     background: white;
 }
+
 .inputfield-fontstyle{ 
     vertical-align: middle;
     margin-bottom: 1rem;
@@ -287,6 +288,7 @@
     color:white !important; 
     font-size: large !important;
     width:170px;
+    height:40px;
 }
 .MuiSelect-icon{
     color:white !important;
@@ -315,6 +317,7 @@
     margin-bottom: 1rem;
     border: none;
     transition: all 0.3s ease-in-out;
+    height:40px;
 }
 
 .print-button{
