@@ -302,6 +302,10 @@
     border: none;
     transition: all 0.3s ease-in-out;
 }
+
+.print-button{
+    margin: 0 10px;
+}
 .print-button:hover {
     opacity: 0.93;
 }
