@@ -396,17 +396,17 @@ function Homepage() {
         : JSON.parse(localStorage.getItem("themes"))
     );
     setprimary(
-      localStorage.getItem("theme_primary") == null
+      localStorage.getItem("theme_primary") === null
         ? "#34678c"
         : localStorage.getItem("theme_primary")
     )
     setsecondary(
-      localStorage.getItem("theme_secondary") == null
+      localStorage.getItem("theme_secondary") === null
         ? "rgb(242, 100, 100)"
         : localStorage.getItem("theme_secondary")
     )
     setActiveColor(
-      localStorage.getItem("activeColor") == null
+      localStorage.getItem("activeColor") === null
         ? 0
         : parseInt(localStorage.getItem("activeColor"))
     )
