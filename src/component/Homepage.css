@@ -277,6 +277,20 @@
     width: 100%;
     background: white;
 }
+.inputfield-fontstyle{ 
+    vertical-align: middle;
+    margin-bottom: 1rem;
+
+}
+.fontpicker{
+    background-color:  #58a6ff;
+    color:white !important; 
+    font-size: large !important;
+    width:170px;
+}
+.MuiSelect-icon{
+    color:white !important;
+}
 .print-button,
 .add-edu-button,
 .pick-theme-button,
