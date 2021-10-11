@@ -50,6 +50,17 @@ function Homepage() {
   const [portfolio, setportfolio] = useState("");
   //Experiecne Hooks
   //experience 1
+  const setPhoto = (e) => {
+    const file = e.target.files[0]
+    const fileReader = new FileReader()
+
+    fileReader.addEventListener('load', result => {
+      setphotourl(fileReader.result)
+    })
+
+    fileReader.readAsDataURL(file)
+  }
+
   const [exp, setexp] = useState({
     postname: "",
     company: "",
@@ -245,8 +256,8 @@ function Homepage() {
   };
 
   //Theme Hooks
-  const [primary, setprimary] = useState("#34678c");
-  const [secondary, setsecondary] = useState("rgb(242, 100, 100)");
+  const [primary, setprimary] = useState("");
+  const [secondary, setsecondary] = useState("");
   const themeList = [
     ["#34678c", "rgb(242, 100, 100)"],
     ["#2b273f", "#7cff81"],
@@ -424,6 +435,21 @@ function Homepage() {
         ? themeList
         : JSON.parse(localStorage.getItem("themes"))
     );
+    setprimary(
+      localStorage.getItem("theme_primary") === null
+        ? "#34678c"
+        : localStorage.getItem("theme_primary")
+    )
+    setsecondary(
+      localStorage.getItem("theme_secondary") === null
+        ? "rgb(242, 100, 100)"
+        : localStorage.getItem("theme_secondary")
+    )
+    setActiveColor(
+      localStorage.getItem("activeColor") === null
+        ? 0
+        : parseInt(localStorage.getItem("activeColor"))
+    )
   }, []);
   useEffect(() => {
     localStorage.setItem("photourl", photourl);
@@ -448,6 +474,9 @@ function Homepage() {
       JSON.stringify([exp, exp2, exp3, exp4, exp5, exp6])
     );
     localStorage.setItem("themes", JSON.stringify(themes));
+    localStorage.setItem("theme_primary", primary);
+    localStorage.setItem("theme_secondary", secondary);
+    localStorage.setItem("activeColor", activeColor);
   }, [
     name,
     subtitle,
@@ -474,6 +503,9 @@ function Homepage() {
     exp5,
     exp6,
     themes,
+    primary,
+    secondary,
+    activeColor
   ]);
   return (
     <div id="main">
@@ -533,7 +565,7 @@ function Homepage() {
           {nav === "info" ? (
             <Info
               photourl={photourl}
-              setphotourl={setphotourl}
+              setphotourl={setPhoto}
               name={name}
               setname={setname}
               subtitle={subtitle}
