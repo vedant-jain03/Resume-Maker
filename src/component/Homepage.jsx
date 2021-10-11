@@ -45,6 +45,17 @@ function Homepage() {
   const [portfolio, setportfolio] = useState("");
   //Experiecne Hooks
   //experience 1
+  const setPhoto = (e) => {
+    const file = e.target.files[0]
+    const fileReader = new FileReader()
+
+    fileReader.addEventListener('load', result => {
+      setphotourl(fileReader.result)
+    })
+
+    fileReader.readAsDataURL(file)
+  }
+
   const [exp, setexp] = useState({
     postname: "",
     company: "",
@@ -525,7 +536,7 @@ function Homepage() {
           {nav === "info" ? (
             <Info
               photourl={photourl}
-              setphotourl={setphotourl}
+              setphotourl={setPhoto}
               name={name}
               setname={setname}
               subtitle={subtitle}

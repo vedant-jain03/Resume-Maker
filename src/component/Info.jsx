@@ -8,7 +8,7 @@ function Info({photourl,setphotourl,name,setname,subtitle,setsubtitle,userdesc,s
                         <div className="form">
                             <div className="input-box">
                                 <span className="details">Photo</span>
-                                <input type="text" placeholder="Url here" value={photourl} onChange={e=>setphotourl(e.target.value)} />
+                                <input type="file" onChange={setphotourl} />
                             </div>
                             <div className="input-box">
                                 <span className="details">Name</span>

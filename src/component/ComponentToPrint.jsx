@@ -12,7 +12,7 @@ export class ComponentToPrint extends React.PureComponent {
         return (
             <div className="resume">
                 <div className="info">
-                    {this.props.photourl === '' ? null : <img src={this.props.photourl} alt="" />}
+                    {this.props.photourl === '' ? null : <img src={this.props.photourl} alt="" width="100" height="" />}
                     <div className="main-info">
                         <h1 style={{color:this.props.primary,textTransform: 'capitalize'}}  >{this.props.name}</h1>
                         <h3>{this.props.subtitle}</h3>
