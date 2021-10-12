@@ -11,7 +11,10 @@ import { ComponentToPrint } from "./ComponentToPrint";
 import Popover from "@material-ui/core/Popover";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import { ColorPicker } from "material-ui-color";
+import { InputLabel } from "@material-ui/core";
 
 //Homepage
 function Homepage() {
@@ -30,6 +33,8 @@ function Homepage() {
   };
   //nav hook
   const [nav, setnav] = useState("info");
+
+  // font
 
   //info hooks
   const [photourl, setphotourl] = useState("");
@@ -249,6 +254,7 @@ function Homepage() {
     }
     return true;
   };
+
   //Theme Hooks
   const [primary, setprimary] = useState("");
   const [secondary, setsecondary] = useState("");
@@ -288,6 +294,29 @@ function Homepage() {
     const theme = [picker1Color, picker2Color];
     setthemes([...themes, theme]);
   };
+
+  // Font Family Hook
+  const [fontFamily, setFontFamily] = useState("Arial");
+
+  const fonts = ["Arial",
+    "Verdana", 
+    "Helvetica", 
+    "Tahoma", 
+    "Trebuchet MS", 
+    "Times New Roman",
+    "Georgia",
+    "Garamond",
+    "Courier New",
+    "Brush Script MT",
+    "Lucida Sans",
+    "Futara",
+    "Segoe UI",
+    "Lucida Bright",
+    "Lucida Sans Typewriter",
+    "Comic Sans MS",
+    "Javanese Text"
+  ].sort();
+
   // Use Effect Hook
   useEffect(() => {
     const prename =
@@ -662,8 +691,18 @@ function Homepage() {
               Print this out!
             </button>
             <button className="print-button" onClick = {removeall}>Clear All</button>
+            </div>  
+            <div className="inputfield-fontstyle">
+              <Select
+                value={fontFamily}
+                variant="outlined"
+                onChange={(e) => setFontFamily(e.target.value)}
+                className="fontpicker"
+                autoWidth={true}
+              >
+                {fonts.map((font,idx)=><MenuItem value={font} key={idx}>{font}</MenuItem>)}
+              </Select>
             </div>
-            
             <div className="theme">
               <h2>Theme</h2>
               <div
@@ -781,7 +820,8 @@ function Homepage() {
               project4={project4}
               primary={primary}
               secondary={secondary}
-              ref={componentRef}
+              ref={componentRef} 
+              fontFamily={fontFamily}
             />
           </div>
         </div>

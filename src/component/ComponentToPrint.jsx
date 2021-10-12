@@ -10,7 +10,7 @@ import AttachmentIcon from '@material-ui/icons/Attachment';
 export class ComponentToPrint extends React.PureComponent {
     render() {
         return (
-            <div className="resume">
+            <div className="resume" style={{fontFamily:this.props.fontFamily}}>
                 <div className="info">
                     {this.props.photourl === '' ? null : <img src={this.props.photourl} alt="" width="100" height="" />}
                     <div className="main-info">
