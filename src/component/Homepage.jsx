@@ -51,15 +51,15 @@ function Homepage() {
   //Experiecne Hooks
   //experience 1
   const setPhoto = (e) => {
-    const file = e.target.files[0]
-    const fileReader = new FileReader()
+    const file = e.target.files[0];
+    const fileReader = new FileReader();
 
-    fileReader.addEventListener('load', result => {
-      setphotourl(fileReader.result)
-    })
+    fileReader.addEventListener("load", (result) => {
+      setphotourl(fileReader.result);
+    });
 
-    fileReader.readAsDataURL(file)
-  }
+    fileReader.readAsDataURL(file);
+  };
 
   const [exp, setexp] = useState({
     postname: "",
@@ -194,11 +194,8 @@ function Homepage() {
     });
   };
 
-// Clear all localstorage Values
-  const removeall = () => ( 
-    localStorage.clear(),
-    window.location.reload(false)
-    )
+  // Clear all localstorage Values
+  const removeall = () => (localStorage.clear(), window.location.reload(false));
 
   const isEmpty = () => {
     if (
@@ -298,11 +295,12 @@ function Homepage() {
   // Font Family Hook
   const [fontFamily, setFontFamily] = useState("Arial");
 
-  const fonts = ["Arial",
-    "Verdana", 
-    "Helvetica", 
-    "Tahoma", 
-    "Trebuchet MS", 
+  const fonts = [
+    "Arial",
+    "Verdana",
+    "Helvetica",
+    "Tahoma",
+    "Trebuchet MS",
     "Times New Roman",
     "Georgia",
     "Garamond",
@@ -314,7 +312,7 @@ function Homepage() {
     "Lucida Bright",
     "Lucida Sans Typewriter",
     "Comic Sans MS",
-    "Javanese Text"
+    "Javanese Text",
   ].sort();
 
   // Use Effect Hook
@@ -439,17 +437,17 @@ function Homepage() {
       localStorage.getItem("theme_primary") === null
         ? "#34678c"
         : localStorage.getItem("theme_primary")
-    )
+    );
     setsecondary(
       localStorage.getItem("theme_secondary") === null
         ? "rgb(242, 100, 100)"
         : localStorage.getItem("theme_secondary")
-    )
+    );
     setActiveColor(
       localStorage.getItem("activeColor") === null
         ? 0
         : parseInt(localStorage.getItem("activeColor"))
-    )
+    );
   }, []);
   useEffect(() => {
     localStorage.setItem("photourl", photourl);
@@ -505,7 +503,7 @@ function Homepage() {
     themes,
     primary,
     secondary,
-    activeColor
+    activeColor,
   ]);
   return (
     <div id="main">
@@ -687,21 +685,12 @@ function Homepage() {
         <div className="right">
           <div className="up">
             <div className="buttons">
-            <button className="print-button" onClick={handlePrint}>
-              Print this out!
-            </button>
-            <button className="print-button" onClick = {removeall}>Clear All</button>
-            </div>  
-            <div className="inputfield-fontstyle">
-              <Select
-                value={fontFamily}
-                variant="outlined"
-                onChange={(e) => setFontFamily(e.target.value)}
-                className="fontpicker"
-                autoWidth={true}
-              >
-                {fonts.map((font,idx)=><MenuItem value={font} key={idx}>{font}</MenuItem>)}
-              </Select>
+              <button className="print-button" onClick={handlePrint}>
+                Print this out!
+              </button>
+              <button className="print-button" onClick={removeall}>
+                Clear All
+              </button>
             </div>
             <div className="theme">
               <h2>Theme</h2>
@@ -725,7 +714,7 @@ function Homepage() {
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
                 onClose={handleClosePopover}
               >
-                <Card sx={{ minWidth: 275 }}>
+                <Card sx={{ minWidth: 275}}>
                   <CardContent>
                     <div>
                       <div>
@@ -779,8 +768,24 @@ function Homepage() {
                             disableAlpha
                           />
                         </div>
+                        <div className="fontpicker-div">
+                        <div className="fontpicker-label">Font</div>
+                          <Select
+                            value={fontFamily}
+                            variant="standard"
+                            onChange={(e) => setFontFamily(e.target.value)}
+                            className="fontpicker"
+                            autoWidth={true}
+                          >
+                            {fonts.map((font, idx) => (
+                              <MenuItem value={font} key={idx}>
+                                {font}
+                              </MenuItem>
+                            ))}
+                          </Select>
+                        </div>
                         <button
-                          style={{ marginTop: "10px" }}
+                          style={{ marginTop: "20px" }}
                           onClick={saveTheme}
                           className="save-theme-button"
                         >
@@ -820,7 +825,7 @@ function Homepage() {
               project4={project4}
               primary={primary}
               secondary={secondary}
-              ref={componentRef} 
+              ref={componentRef}
               fontFamily={fontFamily}
             />
           </div>

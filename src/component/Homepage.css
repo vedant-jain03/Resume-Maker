@@ -278,21 +278,20 @@
     background: white;
 }
 
-.inputfield-fontstyle{ 
-    vertical-align: middle;
-    margin-bottom: 1rem;
-
+.fontpicker-div{
+    margin-top:5px;
+}
+.fontpicker-label{
+    margin-bottom: 5px;
 }
 .fontpicker{
-    background-color:  #58a6ff;
-    color:white !important; 
-    font-size: large !important;
-    width:170px;
-    height:40px;
+    width:235px;
+    height:20px;
+} 
+.fontpicker:focus{ 
+   background-color: inherit;
 }
-.MuiSelect-icon{
-    color:white !important;
-}
+
 .print-button,
 .add-edu-button,
 .pick-theme-button,
