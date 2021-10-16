@@ -698,7 +698,7 @@ function Homepage() {
                 style={{
                   background: `linear-gradient(45deg, ${primary}, ${secondary})`,
                 }}
-                onClick={() => {}}
+                onClick={handleClickPopover}
               ></div>
               <button
                 className="pick-theme-button"
