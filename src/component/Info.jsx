@@ -1,6 +1,6 @@
 import React from 'react'
-import Input from '@material-ui/core/Input';
 import "./info.css"
+import './Homepage.css';
 function Info({photourl,setphotourl,name,setname,subtitle,setsubtitle,userdesc,setuserdesc,email,setemail,contact,setcontact,address,setaddress,github,setgithub,linkedin,setlinkedin,portfolio,setportfolio}) {
     return (
         <div>
