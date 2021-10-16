@@ -1,5 +1,6 @@
 import React from 'react'
-import "./Homepage.css"
+import Input from '@material-ui/core/Input';
+import "./info.css"
 function Info({photourl,setphotourl,name,setname,subtitle,setsubtitle,userdesc,setuserdesc,email,setemail,contact,setcontact,address,setaddress,github,setgithub,linkedin,setlinkedin,portfolio,setportfolio}) {
     return (
         <div>
@@ -8,7 +9,7 @@ function Info({photourl,setphotourl,name,setname,subtitle,setsubtitle,userdesc,s
                         <div className="form">
                             <div className="input-box">
                                 <span className="details">Photo</span>
-                                <input type="file" onChange={setphotourl} />
+                                <input type="file" onChange={setphotourl} title=" " style={{color:'transparent'}}className="custom-file-input" />
                             </div>
                             <div className="input-box">
                                 <span className="details">Name</span>
