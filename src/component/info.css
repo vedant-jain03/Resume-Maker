@@ -1,0 +1,13 @@
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Browse or Drag image to Upload Your Photo';
+    display: inline-block;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer; 
+    color: #757575;
+    font-size: 18px;
+    
+  }
