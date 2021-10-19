@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Resume-Maker/static/css/main.30802127.chunk.css",
-    "main.js": "/Resume-Maker/static/js/main.046e56d9.chunk.js",
-    "main.js.map": "/Resume-Maker/static/js/main.046e56d9.chunk.js.map",
+    "main.css": "/Resume-Maker/static/css/main.3f8b6a0d.chunk.css",
+    "main.js": "/Resume-Maker/static/js/main.a2d5c9e4.chunk.js",
+    "main.js.map": "/Resume-Maker/static/js/main.a2d5c9e4.chunk.js.map",
     "runtime-main.js": "/Resume-Maker/static/js/runtime-main.28e58fb2.js",
     "runtime-main.js.map": "/Resume-Maker/static/js/runtime-main.28e58fb2.js.map",
-    "static/js/2.4b2f7f98.chunk.js": "/Resume-Maker/static/js/2.4b2f7f98.chunk.js",
-    "static/js/2.4b2f7f98.chunk.js.map": "/Resume-Maker/static/js/2.4b2f7f98.chunk.js.map",
+    "static/js/2.d3cd5401.chunk.js": "/Resume-Maker/static/js/2.d3cd5401.chunk.js",
+    "static/js/2.d3cd5401.chunk.js.map": "/Resume-Maker/static/js/2.d3cd5401.chunk.js.map",
     "index.html": "/Resume-Maker/index.html",
-    "static/css/main.30802127.chunk.css.map": "/Resume-Maker/static/css/main.30802127.chunk.css.map",
-    "static/js/2.4b2f7f98.chunk.js.LICENSE.txt": "/Resume-Maker/static/js/2.4b2f7f98.chunk.js.LICENSE.txt"
+    "static/css/main.3f8b6a0d.chunk.css.map": "/Resume-Maker/static/css/main.3f8b6a0d.chunk.css.map",
+    "static/js/2.d3cd5401.chunk.js.LICENSE.txt": "/Resume-Maker/static/js/2.d3cd5401.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.28e58fb2.js",
-    "static/js/2.4b2f7f98.chunk.js",
-    "static/css/main.30802127.chunk.css",
-    "static/js/main.046e56d9.chunk.js"
+    "static/js/2.d3cd5401.chunk.js",
+    "static/css/main.3f8b6a0d.chunk.css",
+    "static/js/main.a2d5c9e4.chunk.js"
   ]
 }
