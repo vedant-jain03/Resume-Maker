@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import "./Homepage.css";
 import Info from "./Info";
 import Skills from "./Skills";
@@ -14,7 +14,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { ColorPicker } from "material-ui-color";
-import { InputLabel } from "@material-ui/core";
 
 //Homepage
 function Homepage() {
@@ -119,15 +118,18 @@ function Homepage() {
       ach: "",
     },
   });
-  const eduObject = {
-    edu_1: {
-      school: "",
-      course: "",
-      from: "",
-      to: "",
-      ach: "",
-    },
-  };
+  
+  const eduObject = useMemo(() => {
+    return {
+      edu_1: {
+        school: "",
+        course: "",
+        from: "",
+        to: "",
+        ach: "",
+      },
+    }
+  }, []);
 
   // Skills Hooks
   const [input, setinput] = useState("");
@@ -171,12 +173,16 @@ function Homepage() {
     tech: "",
     desc: "",
   });
-  const projectObject = {
-    name: "",
-    link: "",
-    tech: "",
-    desc: "",
-  };
+
+  const projectObject = useMemo(() => {
+    return {
+      name: "",
+      link: "",
+      tech: "",
+      desc: "",
+    }
+  }, []);
+
   //Achievements Hooks
   const [ach, setach] = useState("");
   const [list, setlist] = useState([]);
@@ -195,7 +201,7 @@ function Homepage() {
   };
 
   // Clear all localstorage Values
-  const removeall = () => (localStorage.clear(), window.location.reload(false));
+  const removeall = () => { localStorage.clear(); window.location.reload(false) };
 
   const isEmpty = () => {
     if (
@@ -255,17 +261,20 @@ function Homepage() {
   //Theme Hooks
   const [primary, setprimary] = useState("");
   const [secondary, setsecondary] = useState("");
-  const themeList = [
-    ["#34678c", "rgb(242, 100, 100)"],
-    ["#2b273f", "#7cff81"],
-    ["black", "#cddc39"],
-    ["rgb(0 150 151)", "#ff9800"],
-    ["rgb(70 88 178)", "#91c1dc"],
-    ["rgb(38 70 83)", "#2a9d8f"],
-    ["rgb(188 108 37)", "#dda15e"],
-    ["rgb(0 48 73)", "#d62828"],
-    ["rgb(140 47 57)", "#b23a48"],
-  ];
+
+  const themeList = useMemo(() => {
+    return [
+      ["#34678c", "rgb(242, 100, 100)"],
+      ["#2b273f", "#7cff81"],
+      ["black", "#cddc39"],
+      ["rgb(0 150 151)", "#ff9800"],
+      ["rgb(70 88 178)", "#91c1dc"],
+      ["rgb(38 70 83)", "#2a9d8f"],
+      ["rgb(188 108 37)", "#dda15e"],
+      ["rgb(0 48 73)", "#d62828"],
+      ["rgb(140 47 57)", "#b23a48"],
+    ]
+  }, []);
   const [themes, setthemes] = useState(themeList);
   const [picker1Color, setPicker1Color] = useState("#34678c");
   const [picker2Color, setPicker2Color] = useState("rgb(242, 100, 100)");
@@ -448,7 +457,7 @@ function Homepage() {
         ? 0
         : parseInt(localStorage.getItem("activeColor"))
     );
-  }, []);
+  }, [eduObject, exp, exp2, exp3, exp4, exp5, exp6, projectObject, themeList]);
   useEffect(() => {
     localStorage.setItem("photourl", photourl);
     localStorage.setItem("name", name);
@@ -486,7 +495,6 @@ function Homepage() {
     github,
     portfolio,
     linkedin,
-    exp,
     skills,
     list,
     edu,
