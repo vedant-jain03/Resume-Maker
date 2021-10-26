@@ -1,7 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import "./Homepage.css"
 import IconButton from "@material-ui/core/IconButton"
-import DeleteIcon from '@material-ui/icons/Delete';
 import Skillitem from "./Skillitem"
 function Skills({input,skills,listofitems,deleteitems,setinput,setskills}) {
     return (
@@ -21,8 +20,10 @@ function Skills({input,skills,listofitems,deleteitems,setinput,setskills}) {
                             if(item.length>0){
                                 return (
                                     <Skillitem item={item} id={index} key={index} onSelect={deleteitems} />
-                                    )
+                                )
                             }
+
+                            return []
                         })
                     }
                 </div>

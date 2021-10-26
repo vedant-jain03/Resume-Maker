@@ -115,6 +115,8 @@ export class ComponentToPrint extends React.PureComponent {
                                     </div>
                                 )
                             }
+
+                            return []
                         })} 
                         </div>   
                     </div>
@@ -125,10 +127,12 @@ export class ComponentToPrint extends React.PureComponent {
                                 {
                                     this.props.skills.map((item) => {
                                         if(item.length>0){
-                                        return (
-                                            <p className="skill" style={{backgroundColor:this.props.secondary}} >{item}</p>
-                                        )
+                                            return (
+                                                <p className="skill" style={{backgroundColor:this.props.secondary}} >{item}</p>
+                                            )
                                         }
+
+                                        return []
                                     })
                                 }
                             </div>
@@ -202,11 +206,13 @@ export class ComponentToPrint extends React.PureComponent {
                                 {
                                     this.props.achlist.map((item) => {
                                         if(item.length>0){
-                                        return (<>
-                                            <p style={{ fontWeight: '600' }} >- {item}</p>
-                                        </>
-                                        )
+                                            return (<>
+                                                <p style={{ fontWeight: '600' }} >- {item}</p>
+                                            </>
+                                            )
                                         }
+
+                                        return []
                                     })
                                 }
                             </div>

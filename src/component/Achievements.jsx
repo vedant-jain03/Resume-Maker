@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import "./Homepage.css"
 import IconButton from "@material-ui/core/IconButton"
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -26,10 +26,12 @@ function Achievements({ach,setach,list,setlist,additem,deleteitem}) {
                     {
                         list.map((item, index) => {
                             if(item.length>0){
-                            return (
-                                <Ach item={item} id={index} key={index} onSelect={deleteitem} />
-                            )
-                        }
+                                return (
+                                    <Ach item={item} id={index} key={index} onSelect={deleteitem} />
+                                )
+                            }
+
+                            return []
                         })
                     }
                 </div>
