@@ -1,6 +1,3 @@
-# Contribution_Website 
-Contribution Website for all the Hackoberfest21 Participant
-
 <h1 align="center">Getting Started with Contribution Website</h1> 
 <br>
 
