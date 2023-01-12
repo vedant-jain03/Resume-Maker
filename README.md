@@ -4,10 +4,6 @@ Contribution Website for all the Hackoberfest21 Participant
 <h1 align="center">Getting Started with Contribution Website</h1> 
 <br>
 
-<div align="center">
-  <img src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg" alt="hacktoberfest21">
-</div>
-
 <br>
 
 <div align="center">
