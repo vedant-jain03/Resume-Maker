@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from "react"
 import "./resumestyling.css"
 import EmailIcon from '@material-ui/icons/Email';

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+/* eslint-disable array-callback-return */
+import React from 'react'
 import "./Homepage.css"
 import IconButton from "@material-ui/core/IconButton"
-import DeleteIcon from '@material-ui/icons/Delete';
 import Skillitem from "./Skillitem"
 function Skills({ input, skills, listofitems, deleteitems, setinput, setskills }) {
     return (

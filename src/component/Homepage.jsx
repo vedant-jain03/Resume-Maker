@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useEffect } from "react";
 import "./Homepage.css";
 import Info from "./Info";
@@ -14,7 +15,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { ColorPicker } from "material-ui-color";
-import { InputLabel } from "@material-ui/core";
 
 //Homepage
 function Homepage() {
@@ -195,6 +195,7 @@ function Homepage() {
   };
 
   // Clear all localstorage Values
+  // eslint-disable-next-line no-sequences
   const removeall = () => (localStorage.clear(), window.location.reload(false));
 
   const isEmpty = () => {
@@ -448,6 +449,7 @@ function Homepage() {
         ? 0
         : parseInt(localStorage.getItem("activeColor"))
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     localStorage.setItem("photourl", photourl);
@@ -714,7 +716,7 @@ function Homepage() {
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
                 onClose={handleClosePopover}
               >
-                <Card sx={{ minWidth: 275}}>
+                <Card sx={{ minWidth: 275 }}>
                   <CardContent>
                     <div>
                       <div>
@@ -769,7 +771,7 @@ function Homepage() {
                           />
                         </div>
                         <div className="fontpicker-div">
-                        <div className="fontpicker-label">Font</div>
+                          <div className="fontpicker-label">Font</div>
                           <Select
                             value={fontFamily}
                             variant="standard"

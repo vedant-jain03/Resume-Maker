@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import "./Homepage.css"
 import IconButton from "@material-ui/core/IconButton"
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -26,6 +26,7 @@ function Achievements({ ach, setach, list, setlist, additem, deleteitem }) {
                 </div>
                 <div className="skills-section" style={{ boxShadow: 'none', height: '22rem' }} >
                     {
+                        // eslint-disable-next-line array-callback-return
                         list.map((item, index) => {
                             if (item.length > 0) {
                                 return (
